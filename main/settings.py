@@ -29,8 +29,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', SECRET_KEY)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 DEBUG = os.environ.get('DEBUG', DEBUG)
-# ALLOWED_HOSTS = []
 
+# ALLOWED_HOSTS = []
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1:8000',
@@ -98,7 +98,22 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-SITe_ID = 1
+SITE_ID = 1
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True   
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True     
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_ON_GET = True        
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+
 
 # Provider specific settings
 SOCIALACCOUNT_PROVIDERS = {

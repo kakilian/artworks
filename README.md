@@ -1,5 +1,6 @@
 <a name="top"></a>
-![Logo](main\static\main\android-chrome-512x512.png)
+![Logo](documentation\logo.readme.png)
+
 
 # "Discover Unique Art from Independent Artists"
 - Original paintings, fine art prints, and one-of-a-kind pieces curated to inspire and transform your space.

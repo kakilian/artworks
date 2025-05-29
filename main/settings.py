@@ -56,6 +56,8 @@ INSTALLED_APPS = [
 
     # APPS
     'home',
+    'main',
+    'templates',
 ]
 
 

@@ -1,7 +1,22 @@
 
 
-# "Discover Unique Art from Independant Artist"
-- Original paintings, fine are prints, and one-of-a-kind pieces curates to inspire and transform your space.
+# "Discover Unique Art from Independant Artists"
+- Original paintings, fine are prints, and one-of-a-kind pieces curated to inspire and transform your space.
+
+## Table of COntents
+- [About the Project](#about-the-project)
+- [Features](#features-include)
+- [Wireframes](#wireframes)
+- [Custom 404 Page](custom-404-page)
+- [Technologies Used](#technologies-used)
+- [Facebook Business Page](#facebook-business-page)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
 
 ## About the Project
 
@@ -36,9 +51,7 @@
 
 ## Wireframes
 
-- To plan the structure and user experience of the application, a series of wireframes were created to represent key pages and layout flows. These wireframes helped giude the development process and ensured that both functionality and usability were prioritized from the beginning.
-
-- The wireframes were designed using Word and reflect the core paths users would follow to navigate, vrowse, and purchase arework.
+- The wireframes were designed using Mircosoft-Word and reflect the core paths users would follow to navigate, vrowse, and purchase arework.
 
 ### Overview of Wireframes Created:
 
@@ -49,19 +62,33 @@
     - Displays a grid of artworks with filters for medium, price, popularity, and artist. Each item card includes an image, title, artist anme, price and "Add to Cart" button.
 
 3. Artwork Detail Page
-    - Provides an expanded view of a specific artwork, including title, artisit info, price, medium, and an "Add to Cart" button. A small preview of related artworks is included for cross-navigation.
+    - Expanded view of a specific artwork, with details such as title, artist info, price, medium, and a purchase button. Related artworks are shown below.
 
 4.  Artist Profile Page
-    - Shows the artist's bio and photo along with a portfolio of thier work. Includes a "Follow" button placeholder for future marketing/email integration.
+    - Includes artist bio, profile photo, and portfolio. A "Follow" placeholder button is included for future email intergrations.
 
 5.  Cart Page
-    - Lists selected items with thumbnails, title, price, quantity, and a remove button. Displays an order summary with subtotal, tax estimate, and a clear checkout call-to-action.
+    - Lists selected items with thumbnails, title, price, quantity controls, and a remove button. Includes subtotal, estimated tax, and a checkour button.
 
 6.  Checkout Page
-    - Collects user details including billing and shipping information and provides secure payment entry. Includes trust badges and a final order review.
+    - Captures user details (billing/shipping), inclkuldes secure payment fields, trust badges, and a review summary before final purchase.
 
 7.  Custom 404 Page
-    - A simple, branded error page with a friendly message, site navigation recovery links (Back to Home / Explore Artworks), and a themed image for  visual interest.        
+    - A friendly error message with brand-consistent visuals and link to navigate users back home or explore artworks.     
+
+## Custom 404 Page
+
+To enhance user experience, a custom-designed **404 Error Page** was implemented. Rather than displaying a default error, users are shown a creative and on-brand message to keep them engaged:
+
+> "_Even artists get lost sometimes. Let’s get you back on track!_"
+
+- Features colorful imagery using artistic tools (paintbrushes)
+- Uses playful, encouraging text
+- Links users back to the homepage or suggested pages
+- Reflects the tone and theme of the overall website
+
+### Preview:
+![Custom 404 Page](documentation/404-page.png)
 
 ##  Technologies Used
 
@@ -75,7 +102,7 @@
 
 ###  Back-End Tools
 
-`Django Models` • `SQLite` • `PostgreSQL` *(optional for deployment)*
+`Django Models` • `SQLite` • `PostgreSQL` 
 
 ###  E-Commerce & Marketing
 
@@ -120,12 +147,11 @@ This exercise reinforces the importance of integrating social platforms into a b
 
 ### Screenshots
 
-```markdown
 ![Facebook Page Overview](documentation/facebook-overview.png)
 ![Welcome Post Screenshot](documentation/facebook-welcome.png)
 ![Logo Explanation Post](documentation/facebook-logo-post.png)
 ![Cover and Profile Images](documentation/facebook-cover-profile.png)
-```
+
 
 ###  Note for Assessors
 

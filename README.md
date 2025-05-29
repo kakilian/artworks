@@ -10,9 +10,9 @@
 - [Custom 404 Page](custom-404-page)
 - [Technologies Used](#technologies-used)
 - [Facebook Business Page](#facebook-business-page)
-- [](#)
-- [](#)
-- [](#)
+- [Newsletter Signup](#newsletter-signup)
+- [E-commerce Business Model and Marketing Strategy](#e-commerce-business-model-and-marketing-strategy)
+- [Agile Development and Project Planning](#agile-development-and-project-planning)
 - [](#)
 - [](#)
 - [](#)
@@ -153,11 +153,151 @@ This exercise reinforces the importance of integrating social platforms into a b
 ![Cover and Profile Images](documentation/facebook-cover-profile.png)
 
 
-###  Note for Assessors
+### Note for Assessors
 
 As Facebook frequently removes inactive or mock pages, screenshots were taken to verify that this task was completed and should be considered during assessment.
 
+## Newsletter Signup
 
+To simulate a standard e-commerce email marketing feature, a **newsletter signup form** was included in the application. This feature invites users to subscribe to updates about new artists, collections, and offers.
 
+Althoug interation with Mailchimp was not completed (due to trail limits), the form is designed to support furutre connection to sefvices such as: 
+
+- [Brevo (formerly Sendinblue)](https://www.brevo.com/)
+- [MailerLite](https://www.mailerlite.com/)
+- [Moosend](https://mossend.com/)
+
+### Why This Feature Matters:
+- Encourage user engagement and retention
+- Builds a potential audience for marketing campaigns
+- Aligns with real-world best practices in e-commerce
+
+### Form Features:
+- Email input with validation
+- Clear opt-in messaging
+- Confirmation message upon submission
+- Privacy reassurance (no spam!)
+
+### Screenshot Example:
+![Newsletter Signup Form](documentation/newsletter-signup.png)
+
+## E-commerce Business Model and Marketing Strategy
+
+### Business Model
+
+Artworks Marketplace operates as a **B2C ( Business-to-Consumer)** platform, connecting individual customers with independent and emerging artist. The core goal is to create a curates online space where user can discover, explore, and purchase original art directly from the creators.
+
+Revenue is modeled around:
+
+- Direct sales of physical artworks
+- Potential future commission-based earnings from featured artists
+-Optional digital products (e.g. prints, downloads, event tickets) in future iterations
+
+### Target Audience
+
+- Art enthusiasts looking for unique, original pieces
+- Gift buyers seeking meaningful, creative items
+- Home decorators and interior stylists
+- Supporters of the Berlin independant art scene
+
+### Core Marketing Strategies
+
+1. **Social Media Engagement**
+    - A Facebook Bussiness Page was created to showcase features artworks and build brand awareness.
+    - Future marketing may extend to Instagram for visual content and artist promotion.
+
+2. **Email Marketing**
+    - A newsletter signup form allows users to subscribe to updates and offers.
+    - Campaigns may include featured artists, upcoming exhibitions, and new arrivals.
+
+3. **Search Engine optimization (SEO)**
+    - Implementation of:
+        - `robots.txt` and `sitemap.xml` for search visibility
+        -Descriptive meta tags and rel attributes
+        - Keyword-rich content to improve discoverability
+
+4. **Content Marketing**
+    - Blog-style content (planned) to share artist interviews, studio visits, and art-buying guides.
+    - Helps establish authority and trust while improving SEO.
+
+5. **Trust & Transparency**
+    - Use of secure payment processing (Stripe)
+    - Clear returns policy and support contact included in footer (planned)
+    - Custom 404 page enhances iser experience and retains users even on broken links
+
+## Agile Development and Project Planning
+
+This project followed agile methodologies using GitHub Project Board to track tasks and progress through development.
+
+### GitHub Project Board Setup:
+
+- **To Do** - User stories, planned features, and backlog tasks
+- **In Progress** - Active development task
+- **Done** - Completed features, wireframes, and documentation
+
+Each card was based on a specific user story, ensuring a user-centered design approach and feature tracking.
+
+[View GitHub Project Board](https://github.com/kakilian/artworks)
+
+Screenshots of the board before and during development have been included for assessment purposes.
+
+### Sample User Stories Tracked
+
+- As a user, I want to browse artworks by medium so I can find a piece that matches my style.
+- As a user, I want ot add items to a shopping cart so I can purchase multiple artworks at once.
+- As an admin, I want to add new artworks throuhg a form without needing to access the Django admin panel.
+
+### Screenshots
+
+![GitHub Project board Overview](documentation/github-board-overview.png)
+![Task Example](documentation/githun-task-card.png)
+
+## Deployment
+
+This application was deployed by HEROKU. The live site is available at:
+
+![Live Site URL](https://)
+
+- Deployment Steps:
+1. **Set Up GitHub Repository**
+    - Create a new public GitHub repository and pushed the project code
+    - Included README.md, .gitignore and required project files
+
+2. **Environment & Dependencies**    
+    - Added environment variables (in HEROKU dashboard):
+        - SECRET KEY
+        - DEBUG=False
+        - DATABASE_URL
+        - Stripe-related keys (e.g., STRIPE_PUBLIC_KEY; STRIPE_SECRET_KEY)
+    - Installed required packages:
+    - pip install gunicorn dj-database-url psycopg2 whitenoise
+
+3. **Project Configuration**
+    - Set ALLOWED_HOSTS and STATIC_ROOT in settings.py
+    - Configured Procfile (for Heroku) start command:
+    - gunicorn main.wsgi:application
+
+4. **Static Files**
+    - Used Whitenoise for static file handling
+    - Ran collectstatic:
+    - python manage.py collectstatic    
+
+5. **Database Migration**
+    - Applied migrations:
+    - python manage.py migrate
+
+6. **Final Checks**
+    - Ensured:
+        - DEBUG=False
+        - Secret Keys not committed to GitHub
+        - App runs with secure Stripie test keys
+
+## Testing the Deployment
+    - Verified user registration, login, logout
+    - Tested cart and checkout flow using Stripe test cards
+    - Ensured images, wireframes, and marketing tools render properly
+    - Confirm 404 page, SEO files (robots.txt, sitemap.xml), and meta tags are live
+
+    
 
 

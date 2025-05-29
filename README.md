@@ -1,5 +1,7 @@
 <a name="top"></a>
-![Logo](documentation\logo.readme.png)
+<p align="center">
+    <img src="documentation/logo.png" alt="Artworks Marketplace Logo" width="200"/>
+</p>
 
 
 # "Discover Unique Art from Independent Artists"
@@ -155,10 +157,28 @@ This exercise reinforces the importance of integrating social platforms into a b
 
 ### Screenshots
 
-![Facebook Page Overview](documentation/facebook-overview.png)
-![Welcome Post Screenshot](documentation/facebook-welcome.png)
-![Logo Explanation Post](documentation/facebook-logo-post.png)
-![Cover and Profile Images](documentation/facebook-cover-profile.png)
+#### Facebook Profile Page
+<p align="center">
+  <img src="documentation\facebook-cover.png.jpg" alt="Facebook Profile page" width="200"/>
+</p>
+
+#### Facebook Introduction
+<p align="center">
+  <img src="documentation\facebook-welcome-post.png.jpg" alt="Facebook Introduction" width="200"/>
+</p>
+
+#### Facebook Support Page
+<p align="center">
+  <img src="documentation\facebook-profile.png.jpg" alt="Facebook Support Page" width="200"/>
+</p>
+
+#### Facebook Logo "Artworks"
+<p align="center">
+  <img src="documentation\facebook-logo-description.png.jpg" alt="Facebook Favicon Logo" width="200"/>
+</p>
+
+
+
 
 
 ### Note for Assessors

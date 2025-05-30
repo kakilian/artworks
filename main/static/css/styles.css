@@ -3,10 +3,13 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
+
+/* Header and Footer */
 .header, .footer {
     padding: 1em;
     background: #e6f2e6;
 }
+
 .container {
     margin: 2em auto;
     max-width: 1100px;
@@ -14,13 +17,50 @@ body {
     box-shadow: 0 2px 12px #cfd;
     padding: 2em;
 }
+
 .footer {
     text-align: center;
     margin-top: 2em;
     color: #666;
 }
 
-/* New artwork image styles */
+/* Main Layout */
+.main-layout {
+    display: flex;
+    gap: 2em;
+    align-items: flex-start;
+}
+
+/* Sidebar Filters */
+.filters {
+    flex: 0 0 220px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 1.5em;
+    margin-top: 1em;
+}
+
+/* Artworks Section & Grid */
+.artwork-section {
+    flex: 1;
+}
+
+.artwork-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+}
+
+/* Artwork Cards */
+.artwork-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #efe;
+    padding: 1em;
+    text-align: center;
+}
+
+/* Artwork Image */
 .artwork-image {
     width: 200px;
     height: 200px;
@@ -28,6 +68,78 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 8px #dfdfdf4a;
     margin-bottom: 1em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* Add to Cart Button */
+.add-to-cart,
+.artwork-card button {
+    width: 100%;
+    padding: 0.5em;
+    background: #c9ffe4;
+    border: none;
+    border-radius: 6px;
+    margin-top: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
 
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    gap: 1.5em;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.nav-menu a,
+.nav-menu .dropbtn {
+    font-size: 1rem;       /* Change to 0.9rem if you want smaller */
+    padding: 0.4em 1em;
+    color: #222;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.nav-menu a:hover,
+.nav-menu .dropbtn:hover {
+    background: #e0f7fa;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #fff;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.07);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.5em 1em;
+    color: #222;
+    background: none;
+    border-radius: 0;
+}
+
+.dropdown-content a:hover {
+    background: #e0f7fa;
+}

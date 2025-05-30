@@ -10,7 +10,7 @@ ARTWORKS = [
         'artist': 'Nina Petrova',
         'category': 'Painting',
         'price': 600,
-        'image': 'painting-face-one.png.jpg', 
+        'image': 'painting-face-one.png.jpg',
     },
     {
         'id': 2,
@@ -34,7 +34,7 @@ ARTWORKS = [
         'artist': 'Emily Black',
         'category': 'Painting',
         'price': 1800,
-        'image': 'painting-two.png.jpg', 
+        'image': 'painting-two.png.jpg',
     },
     {
         'id': 5,
@@ -96,7 +96,7 @@ def artwork_list(request):
         filtered_artworks = [a for a in ARTWORKS if a['category'] == category]
     else:
         filtered_artworks = ARTWORKS
-  
+
     context = {
         'artworks': filtered_artworks,
         'categories': CATEGORIES,

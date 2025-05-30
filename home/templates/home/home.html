@@ -1,1 +1,35 @@
 {% extends 'artworks/base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="artworkCarousel" class="carousel slide" data-bs-ride="carousel" style="max-width:600px; margin: 2em auto;">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'main/images/painting-face-one.png.jpg' %}" class="d-block w-100" alt="Art 1">
+        <div class="carousel-caption d-none d-md-block">
+            <h2 style="text-align:center; margin-top:1em;">Featured Artworks</h2>
+          <h5>Blue Headscarf</h5>
+          <p>Nina Petrova</p>
+        </div>
+      </div> 
+      <div class="carousel-item">
+        <img src="{% static 'main/images/painting-face-two.png.jpg' %}" class="d-block w-100" alt="Art 2">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Fragmented Beauty</h5>
+          <p>Leah Chen</p>
+        </div>
+      </div>
+      <!-- Here add more -->
+    </div>
+    <<button class="carousel-control-prev" type="button" data-bs-target="#artworkCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#artworkCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+  {% endblock %}
+  
+  

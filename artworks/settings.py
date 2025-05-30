@@ -16,7 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 if os.path.exists(os.path.join(BASE_DIR, 'env.py')):
-    import env  
+    import env
 
 
 # Quick-start development settings - unsuitable for production
@@ -50,11 +50,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'allauth',  
+    'allauth',
     'allauth.account',
     'allauth.socialaccount',
 
     # APPS
+    'artworks',
     'home',
     'main',
 ]
@@ -106,14 +107,12 @@ SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True   
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True     
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
-ACCOUNT_LOGOUT_ON_GET = True        
+ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_LOGIN_METHODS = {'email', 'username'}  # Replaces ACCOUNT_AUTHENTICATION_METHOD
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']  # Replaces ACCOUNT_EMAIL_REQUIRED and ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
@@ -182,8 +181,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'artworks' / 'static',
-]   
+    BASE_DIR / 'main' / 'static',
+    BASE_DIR / 'home' / 'static',
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

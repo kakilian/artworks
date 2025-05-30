@@ -1,10 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'artworks/base.html' %}
+{% load static %}
 
-{% block title %}
-Home Page
-{% endblock %}
+{% block title %}Welcome to Artworks{% endblock %}
 
 {% block content %}
-<h2>Landing Page</h2>
-<p>Welcome to the world of ART</p>
+    <h2>Landing Page</h2>
+    <p>Welcome to the world of ART</p>
+
+    <div style="margin-top:2em;">
+        <a href="{% url 'artworks_list' %}" style="font-size:1.2em; background:#e0f7fa; padding:1em; border-radius:8px; text-decoration:none;">
+            View All Artworks
+        </a>
+    </div>
 {% endblock %}

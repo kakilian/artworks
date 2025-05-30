@@ -1,0 +1,77 @@
+{% extends 'artworks/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    
+<!-- Header Section -->    
+<div class="header">
+    <img src="{% static 'main/images/logo.png' %}" alt="Artworks Logo" class="logo">
+    <img src="{% static 'main/images/' %}{{ artwork.image }}" alt="{{ artwork.title }}" class="artwork-image">
+
+    <input type="text" placeholder="Search..." class="search-bar">
+    <nav class="nav-menu">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'artworks_list' %}">Artworks</a>
+        <a href="#">Artists</a>
+        <div class="dropdown">
+            <button class="dropbtn">Coming Up Events</button>
+            <div class="dropdown-content">
+                <a href="#">Exhibitions</a>
+                <a href="#">Workshops</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- Main Content layout -->
+<div class="content-wrapper">
+    <!-- Sidebar Filters -->
+    <aside class="filters">
+        <h3>Filters By</h3>
+        <label>Price Range</label>
+        <!-- Add Price sliders/inputs -->
+        <label>Medium</label>
+        <!-- Dropdown or checkboxes -->
+        <label>Artist</label>
+        <!-- Artist List -->
+        <label>Sort</label>
+        <!-- Dropdown: Newest, Popular -->
+    </aside>
+
+    <!-- Category Filter -->
+<div class="category-filter" style="margin: 20px 0;">
+    <a href="{% url 'artworks_list' %}">All</a>
+    {% for cat in categories %}
+        <a href="?category={{ cat }}" {% if cat == selected_category %}class="active"{% endif %}>{{ cat }}</a>
+    {% endfor %}
+</div>
+
+       <!-- Artwork Grid -->
+       <section class="artwork-grid">
+        <!-- PLACE THIS CODE HERE: -->
+        {% for artwork in artworks %}
+            <div class="artwork-card">
+                <a href="{% url 'artwork_detail' artwork.id %}">
+                    <img src="{% static 'main/images/' %}{{ artwork.image }}" alt="{{ artwork.title }}">
+                    <h4>{{ artwork.title }}</h4>
+                </a>
+                <p>By: {{ artwork.artist }}</p>
+                {% if artwork.price %}
+                <p>€: {{ artwork.price }}</p>
+                {% endif %}
+                <button>Add to Cart</button>
+            </div>
+        {% endfor %}
+    </section>
+</div>
+       
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Follow us: [icons here]</p>
+    <p><a href="#">Privacy</a> | <a href="#">Terms</a> | <a href="#">Contact</a></p>
+    <p><a href="#">Testimonials</a></p>
+  </footer>
+
+</div>
+{% endblock %}

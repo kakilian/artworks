@@ -1,0 +1,14 @@
+{% extends 'artworks/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ artwork.title }}</h2>
+    <img src="{% static 'main/images/' %}{{ artwork.image }}" alt="{{ artwork.title }}" style="max-width: 400px;">
+    <p><strong>Artist:</strong> {{ artwork.artist }}</p>
+    {% if artwork.price %}
+        <p><strong>Price:</strong> €{{ artwork.price }}</p>
+    {% endif %}
+    <a href="{% url 'artworks_list' %}">Back to all artworks</a>
+</div>
+{% endblock %}

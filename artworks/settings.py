@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     # APPS
     'home',
     'main',
-    'templates',
 ]
 
 
@@ -79,7 +78,9 @@ ROOT_URLCONF = 'main.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'main/templates'],
+        'DIRS': [
+            os.path.join(BASE_DIR / 'templates')
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,7 +132,7 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-WSGI_APPLICATION = 'main.wsgi.application'
+WSGI_APPLICATION = 'artworks.wsgi.application'
 
 
 # Database
@@ -181,7 +182,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'main/static',
+    BASE_DIR / 'artworks' / 'static',
 ]   
 
 # Default primary key field type

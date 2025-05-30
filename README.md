@@ -159,22 +159,22 @@ This exercise reinforces the importance of integrating social platforms into a b
 
 #### Facebook Profile Page
 <p align="center">
-  <img src="documentation\facebook-cover.png.jpg" alt="Facebook Profile page" width="200"/>
+  <img src="documentation/facebook-cover.png.jpg" alt="Facebook Profile page" width="200"/>
 </p>
 
 #### Facebook Introduction
 <p align="center">
-  <img src="documentation\facebook-welcome-post.png.jpg" alt="Facebook Introduction" width="200"/>
+  <img src="documentation/facebook-welcome-post.png.jpg" alt="Facebook Introduction" width="200"/>
 </p>
 
 #### Facebook Support Page
 <p align="center">
-  <img src="documentation\facebook-profile.png.jpg" alt="Facebook Support Page" width="200"/>
+  <img src="documentation/facebook-profile.png.jpg" alt="Facebook Support Page" width="200"/>
 </p>
 
 #### Facebook Logo "Artworks"
 <p align="center">
-  <img src="documentation\facebook-logo-description.png.jpg" alt="Facebook Favicon Logo" width="200"/>
+  <img src="documentation/facebook-logo-description.png.jpg" alt="Facebook Favicon Logo" width="200"/>
 </p>
 
 

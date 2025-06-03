@@ -23,12 +23,9 @@ if os.path.exists(os.path.join(BASE_DIR, 'env.py')):
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#1#r_v$t)aucw21za)^_)$u10ul%#=b0-=jsm(t)1x^i-=gl$k'
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', SECRET_KEY)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = os.environ.get('DEBUG', DEBUG)
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-#1#r_v$t)aucw21za)^_)$u10ul%#=b0-=jsm(t)1x^i-=gl$k')
+DEBUG = os.environ.get('DEBUG', 'False') == 'False'
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = [

@@ -87,7 +87,7 @@ ARTWORKS = [
     },
 ]
 
-CATEGORIES = ["Painting", "Sculpture"]
+CATEGORIES = ["Painting", "Sculpture"] #Can increase categories later
 
 
 def artwork_list(request):

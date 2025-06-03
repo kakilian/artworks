@@ -17,6 +17,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 if os.path.exists(os.path.join(BASE_DIR, 'env.py')):
+    pass
 
 
 # Quick-start development settings - unsuitable for production

@@ -29,6 +29,8 @@
                     </a>
                     <p><strong>By:</strong> {{ artwork.artist }}</p>
                     <p><strong>€:</strong> {{ artwork.price }}</p>
+                    <p><strong>Dimensions:</strong>{{ artwork.dimensions }}</p>
+                    <p><strong>Description:</strong>{{ artwork.description | truncatechars:80 }}</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
             {% endfor %}

@@ -10,8 +10,21 @@ class Artist(models.Model):
 
 
 class Artwork(models.Model):
+    CATEGORY_CHOICES = [
+        ('painting', 'Painting'),
+        ('sculpture', 'Sculpture'),
+    #    ('photography', 'Photography'),
+    #    ('drawing', 'Drawing'),
+    #    ('digital', 'Digital Art'),
+    ]
+
     title = models.CharField(max_length=200)
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    category = models.CharField(           
+        max_length=50,
+        choices=CATEGORY_CHOICES,
+        default='painting'
+    )
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(
         upload_to='artwork_images/',

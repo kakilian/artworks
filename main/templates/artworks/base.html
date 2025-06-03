@@ -1,12 +1,13 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Artworks Base hmtl{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'main/images/favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'main/images/favicon/favicon-16x16.png' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'main/images/favicon/apple-touch-icon.png' %}">
@@ -27,7 +28,7 @@
         <!-- Main content goes here -->
         {% endblock %}
     </main>
-        {% include 'footer.html' %}
+        {% include 'artworks/footer.html' %}
     <footer class="text-center py-3 bg-light">
         <p>© 2025 ArtWorks</p>
     </footer>

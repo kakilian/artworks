@@ -97,7 +97,7 @@ body {
 
 .nav-menu a,
 .nav-menu .dropbtn {
-    font-size: 1rem;       /* Change to 0.9rem if you want smaller */
+    font-size: 1rem;       
     padding: 0.4em 1em;
     color: #222;
     text-decoration: none;
@@ -142,4 +142,38 @@ body {
 
 .dropdown-content a:hover {
     background: #e0f7fa;
+}
+
+/* Footer Social Links */
+.site-footer {
+    background-color: #e6f2e6; /* consistent with header */
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.social-links {
+    margin-bottom: 0.5rem;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+    transform: scale(1.1);
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+}
+
+.footer-copy {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #666; /* consistent with footer */
 }

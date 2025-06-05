@@ -296,7 +296,8 @@ Screenshots of the board before and during development have been included for as
 
 This application was deployed using **HEROKU**. The live site is available at:
 
-![Live Site URL](https://artworks.herokuapp.com)
+![Live Site URL](https://artworks-a021b8151bbe.herokuapp.com/)
+![Github](https://github.com/kakilian/artworks)
 
 - Deployment Steps:
 

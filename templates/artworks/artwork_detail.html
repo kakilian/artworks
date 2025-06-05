@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
+<div class="artwork_detail-container">
     <h2>{{ artwork.title }}</h2>
     {% if artwork.image %}
       <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" style="max-width: 400px;">

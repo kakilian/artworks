@@ -1,3 +1,4 @@
+/* Base Body */
 body {
     background: #f3fff3;
     margin: 0;
@@ -85,6 +86,12 @@ body {
     font-weight: bold;
     cursor: pointer;
     font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover,
+.artwork-card button:hover {
+    background: #a1e6be;
 }
 
 /* Navigation Menu */
@@ -176,4 +183,169 @@ body {
     font-size: 0.9rem;
     margin: 0;
     color: #666; /* consistent with footer */
+}
+
+
+
+/* Cart Page Styles */
+.cart-items {
+    margin-bottom: 2rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #d7edd7;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h3 {
+    margin: 0 0 0.3rem 0;
+    color: #2e7d32; /* darker green */
+}
+
+.cart-item-details p {
+    margin: 0;
+    color: #555;
+}
+
+.cart-item-remove form button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.cart-item-remove form button:hover {
+    background: #e04141;
+}
+
+/* Order summary */
+.order-summary {
+    background: #d0f0c0;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(45, 151, 54, 0.15);
+    max-width: 350px;
+    margin-left: auto;
+}
+
+.order-summary h2 {
+    margin-top: 0;
+    color: #1b5e20;
+}
+
+.order-summary p {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.order-summary button {
+    margin-top: 1rem;
+    width: 100%;
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: 700;
+}
+
+.order-summary button:hover {
+    background: #388e3c;
+}
+
+/* Artwork Detail Styles */
+.artwork-detail-container {
+    max-width: 700px;
+    margin: 3rem auto;
+    background: #fff;
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 128, 0, 0.1);
+    text-align: center;
+}
+
+.artwork-detail-container img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 128, 0, 0.15);
+    margin-bottom: 1.5rem;
+}
+
+.artwork-detail-container h2 {
+    color: #2e7d32;
+    margin-bottom: 1rem;
+}
+
+.artwork-detail-container p {
+    font-size: 1.15rem;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.artwork-detail-container form button {
+    background: #81c784;
+    border: none;
+    padding: 0.7rem 2rem;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.3s ease;
+}
+
+.artwork-detail-container form button:hover {
+    background: #4caf50;
+}
+
+/* Smooth hover transitions for buttons and links */
+button, .add-to-cart, a {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 650px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item img {
+        margin-bottom: 15px;
+    }
+
+    .main-layout {
+        flex-direction: column;
+    }
 }

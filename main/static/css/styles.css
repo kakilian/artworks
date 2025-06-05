@@ -243,17 +243,15 @@ body {
 
 /* Order summary */
 .order-summary {
-    background: #d0f0c0;
-    padding: 1.5rem 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(45, 151, 54, 0.15);
-    max-width: 350px;
-    margin-left: auto;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  max-width: 350px;
+  margin-left: auto;
 }
 
 .order-summary h2 {
-    margin-top: 0;
-    color: #1b5e20;
+  margin-top: 0;
+  color: #2e7d32;
 }
 
 .order-summary p {

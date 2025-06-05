@@ -4,11 +4,25 @@
 {% block content %}
 <div class="container">
     <h2>{{ artwork.title }}</h2>
-    <img src="{% static 'main/images/' %}{{ artwork.image }}" alt="{{ artwork.title }}" style="max-width: 400px;">
+    {% if artwork.image %}
+      <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" style="max-width: 400px;">
+    {% endif %}
     <p><strong>Artist:</strong> {{ artwork.artist }}</p>
     {% if artwork.price %}
         <p><strong>Price:</strong> €{{ artwork.price }}</p>
     {% endif %}
+
+    {% if user.is_authenticated %}
+      <form method="post" action="{% url 'add_to_cart' artwork.id %}">
+        {% csrf_token %}
+        <button type="submit" style="background:#ff9966; color:white; border:none; padding:10px 20px; border-radius: 25px; cursor:pointer;">
+          Add to Cart
+        </button>
+      </form>
+    {% else %}
+      <p><a href="{% url 'login' %}">Log in</a> to add to cart.</p>
+    {% endif %}
+
     <a href="{% url 'artworks_list' %}">Back to all artworks</a>
 </div>
 {% endblock %}

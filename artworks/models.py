@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Artist(models.Model):
@@ -13,14 +14,11 @@ class Artwork(models.Model):
     CATEGORY_CHOICES = [
         ('painting', 'Painting'),
         ('sculpture', 'Sculpture'),
-    #    ('photography', 'Photography'),
-    #    ('drawing', 'Drawing'),
-    #    ('digital', 'Digital Art'),
     ]
 
     title = models.CharField(max_length=200)
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
-    category = models.CharField(           
+    category = models.CharField(
         max_length=50,
         choices=CATEGORY_CHOICES,
         default='painting'
@@ -37,3 +35,30 @@ class Artwork(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Cart(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='cart')
+
+    def __str__(self):
+        return f"Cart for {self.user.username}"
+
+    def subtotal(self):
+        return sum(item.total_price() for item in self.items.all())
+
+    def taxes(self):
+        return self.subtotal() * 0.19
+
+    def total(self):
+        return self.subtotal() + self.taxes()
+
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='items')
+    artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE)
+
+    def total_price(self):
+        return self.artwork.price  # quantity always 1, so no multiplication
+
+    def __str__(self):
+        return self.artwork.title

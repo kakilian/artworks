@@ -1,0 +1,41 @@
+{% extends 'artworks/base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Your Cart</h2>
+
+{% if cart_items %}
+  <div class="cart-items">
+    {% for item in cart_items %}
+      <div class="cart-item" style="display:flex; align-items:center; margin-bottom: 20px;">
+        {% if item.artwork.image %}
+          <img src="{{ item.artwork.image.url }}" alt="{{ item.artwork.title }}" style="width: 80px; height: 80px; object-fit: cover; margin-right: 15px;" />
+        {% endif %}
+        <div style="flex-grow:1;">
+          <h3>{{ item.artwork.title }}</h3>
+          <p>Artist: {{ item.artwork.artist.name }}</p>
+          <p>Price: ${{ item.artwork.price }}</p>
+          <p>Quantity: 1</p>
+        </div>
+        <div>
+          <form method="post" action="{% url 'remove_item' item.id %}">
+            {% csrf_token %}
+            <button type="submit" style="background:#ff4c4c; color:white; border:none; padding: 8px 12px; border-radius: 4px; cursor:pointer;">Remove</button>
+          </form>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="order-summary" style="border-top: 1px solid #ccc; padding-top: 20px;">
+    <h2>Order Summary</h2>
+    <p>Subtotal: ${{ subtotal }}</p>
+    <p>Taxes: ${{ taxes }}</p>
+    <p><strong>Total: ${{ total }}</strong></p>
+    <button onclick='window.location.href="{% url "checkout" %}"' style="background:#ff9966; color:#fff; border:none; padding: 12px 30px; border-radius: 50px; cursor:pointer; font-weight:bold;">Checkout</button>
+  </div>
+
+{% else %}
+  <p>Your cart is empty.</p>
+{% endif %}
+{% endblock %}

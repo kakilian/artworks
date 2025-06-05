@@ -1,6 +1,44 @@
 {% extends 'artworks/base.html' %}
 
+
 {% block content %}
 <h1>Checkout</h1>
-<p>This is a placeholder page for checkout. Implementation to come.</p>
+
+<button id="checkout-button">Buy items in Cart</button>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    var stripe = Stripe('{{ stripe_publishable_key }}');
+
+    var checkoutButton = document.getElementById('checkout-button');
+    checkoutButton.addEventListener('click', function () {
+        fetch("{% url 'create_checkout_session' %}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+        })    
+        .then(function (response) {
+            return response.json(); 
+        })   
+        .then(function (session) {
+            if (session.error) {
+                alert(session.error);
+            } else {
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            }
+        })
+        .then(function (result) {
+            if (result.error) {
+                alert(result.error.message);
+            }
+        })
+        .catch(function (error) {
+            console.error('Error:', error);
+            alert('An error occurred while processing your request.');
+        }); 
+    });
+</script>
+
 {% endblock %}

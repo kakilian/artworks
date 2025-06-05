@@ -1,8 +1,16 @@
+import stripe
+from django.conf import settings
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
+from django.http import JsonResponse
 from .models import Artwork, Artist, Cart, CartItem
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+print("Stripe Secret Key:", settings.STRIPE_SECRET_KEY)
+
 
 
 def artwork_list(request):
@@ -24,6 +32,37 @@ def artwork_list(request):
 def artwork_detail(request, pk):
     artwork = get_object_or_404(Artwork, pk=pk)
     return render(request, 'artworks/artwork_detail.html', {'artwork': artwork})
+
+
+@login_required
+@csrf_exempt
+def create_checkout_session(request):
+    if request.method == 'POST':
+        try:
+            cart = Cart.objects.get(user=request.user)
+            line_items = []
+            for item in cart.items.all():
+                line_items.append({
+                    'price_data': {
+                        'currency': 'usd',
+                        'product_data': {
+                            'name': item.artwork.title,
+                        },
+                        'unit_amount': int(item.artwork.price * 100),
+                    },
+                    'quantity': item.quantity,
+                })
+
+            checkout_session = stripe.checkout.Session.create(
+                payment_method_types=['card'],
+                line_items=line_items,
+                mode='payment',
+                success_url=request.build_absolute_uri('/artworks/payment/success/'),
+                cancel_url=request.build_absolute_uri('/artworks/payment/cancel/'),
+            )
+            return JsonResponse({'id': checkout_session.id})
+        except Exception as e:
+            return JsonResponse({'error': str(e)})
 
 
 @login_required
@@ -74,5 +113,16 @@ def remove_item(request, item_id):
 
 @login_required
 def checkout_page(request):
-    # Placeholder for checkout logic
-    return render(request, 'artworks/checkout.html')
+    return render(request, 'artworks/checkout.html', {
+        'stripe_publishable_key': settings.STRIPE_PUBLISHABLE_KEY
+    })
+
+
+@login_required
+def payment_success(request):
+    return render(request, 'artworks/payment.html')
+
+
+@login_required
+def payment_cancel(request):
+    return render(request, 'artworks/cancel.html')

@@ -58,6 +58,7 @@ class Cart(models.Model):
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='items')
     artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
 
     def total_price(self):
         return self.artwork.price  # quantity always 1, so no multiplication

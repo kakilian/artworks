@@ -32,7 +32,7 @@
     <p>Subtotal: ${{ subtotal | floatformat:2 }}</p>
     <p>Taxes: ${{ taxes }}</p>
     <p><strong>Total: ${{ total }}</strong></p>
-    <button onclick='window.location.href="{% url 'checkout' %}"'>Checkout</button>
+    <button onclick="window.location.href='{% url 'checkout' %}'">Checkout</button>
   </div>
 
 {% else %}

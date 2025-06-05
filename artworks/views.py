@@ -12,7 +12,6 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 print("Stripe Secret Key:", settings.STRIPE_SECRET_KEY)
 
 
-
 def artwork_list(request):
     category = request.GET.get('category')
     if category:

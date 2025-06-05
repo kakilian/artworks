@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.urls import reverse
-
 from .models import Artwork, Artist, Cart, CartItem
 
 
@@ -38,11 +37,21 @@ def cart_page(request):
 
     context = {
         'cart_items': items,
-        'subtotal': f"{subtotal():.2f}",
+        'subtotal': f"{subtotal:.2f}",
         'taxes': f"{taxes:.2f}",
         'total': f"{total:.2f}",
     }
     return render(request, 'artworks/cart.html', context)
+
+
+@login_required
+def add_to_cart(request, artwork_id):
+    artwork = get_object_or_404(Artwork, id=artwork_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
+
+    CartItem.objects.get_or_create(cart=cart, artwork=artwork)
+
+    return redirect('cart_page')
 
 
 @login_required

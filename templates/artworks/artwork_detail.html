@@ -5,7 +5,7 @@
 <div class="artwork_detail-container">
     <h2>{{ artwork.title }}</h2>
     {% if artwork.image %}
-      <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}">
+      <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="artwork-image">
     {% else %}
         <p>No image available for this artwork.</p>
     {% endif %}

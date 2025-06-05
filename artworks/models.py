@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from decimal import Decimal
 
 
 class Artist(models.Model):
@@ -47,7 +48,8 @@ class Cart(models.Model):
         return sum(item.total_price() for item in self.items.all())
 
     def taxes(self):
-        return self.subtotal() * 0.19
+        return self.subtotal() * Decimal('0.19')
+
 
     def total(self):
         return self.subtotal() + self.taxes()

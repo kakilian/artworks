@@ -1,7 +1,7 @@
-from django.urls import path
+from django.urls import path, include
 from .views import (
-     artwork_list, artwork_detail, cart_page, update_quantity, 
-     remove_item, checkout_page, add_to_cart, payment_success, 
+     artwork_list, artwork_detail, cart_page, update_quantity,
+     remove_item, checkout_page, add_to_cart, payment_success,
      payment_cancel, create_checkout_session
 )
 
@@ -17,4 +17,5 @@ urlpatterns = [
     path('payment/cancel/', payment_cancel, name='payment_cancel'),  # /artworks/payment/cancel/
     path('create-checkout-session/', create_checkout_session, name='create_checkout_session'),  # /artworks/create-checkout-session/
     path('add_to_cart/<int:artwork_id>/', add_to_cart, name='add_to_cart'),  # /artworks/add_to_cart/
+    path('accounts/', include('allauth.urls')),  # /artworks/accounts/
 ]

@@ -50,7 +50,6 @@ class Cart(models.Model):
     def taxes(self):
         return self.subtotal() * Decimal('0.19')
 
-
     def total(self):
         return self.subtotal() + self.taxes()
 

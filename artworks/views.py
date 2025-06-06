@@ -87,7 +87,10 @@ def add_to_cart(request, artwork_id):
     artwork = get_object_or_404(Artwork, id=artwork_id)
     cart, created = Cart.objects.get_or_create(user=request.user)
 
-    CartItem.objects.get_or_create(cart=cart, artwork=artwork)
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, artwork=artwork)
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
 
     return redirect('cart_page')
 
@@ -112,9 +115,21 @@ def remove_item(request, item_id):
 
 @login_required
 def checkout_page(request):
-    return render(request, 'artworks/checkout.html', {
-        'stripe_publishable_key': settings.STRIPE_PUBLISHABLE_KEY
-    })
+    cart = get_object_or_404(Cart, user=request.user)
+    items = cart.items.select_related('artwork')
+
+    subtotal = cart.subtotal()
+    taxes = cart.taxes()
+    total = cart.total()
+
+    context = {
+        'cart_items': items,
+        'subtotal': f"{subtotal:.2f}",
+        'taxes': f"{taxes:.2f}",
+        'total': f"{total:.2f}",
+        'stripe_publishable_key': settings.STRIPE_PUBLISHABLE_KEY,
+    }
+    return render(request, 'artworks/checkout.html', context)
 
 
 @login_required

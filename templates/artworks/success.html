@@ -1,2 +1,7 @@
 {% extends 'artworks/base.html' %}
-{% load static %}
+
+{% block content %}
+  <h2>Payment Successful!</h2>
+  <p>Thank you for your purchase.</p>
+  <a href="{% url 'artworks_list' %}">Return to homepage</a>
+{% endblock %}

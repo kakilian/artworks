@@ -5,17 +5,67 @@
 <div class="main-layout">
 
     <!-- Sidebar Filters -->
-    <aside class="filters">
-        <h3>Filter Bar</h3>
-        <div><strong>Price Range:</strong> <br> <!-- sliders or min/max inputs here --></div>
-        <div class="medium-filter"><strong>Medium:</strong> <br> <!-- checkboxes/dropdown --></div>
-        <div class="artist-filter"><strong>Artist:</strong> <br> <!-- artist list --></div>
-        <div class="sort-filter"><strong>Sort by:</strong>
-            <select>
-                <option>Newest</option>
-                <option>Popular</option>
-            </select>
-        </div>
+    <aside class="filters card p-3 mb-4">
+        <h3 class="card-title mb-3">Filter Bar</h3>
+
+         <form method="get" action="{% url 'artworks_list' %}">
+            <!-- Price Range -->
+            <div class="mb-3">
+                <label for="price_min" class="form-label">Price Range (Min):</label>
+                <input type="number" class="form-control" id="price_min" name="price_min" value="{{ request.GET.price_min }}" placeholder="Min price" step="0.01">
+            </div>
+            <div class="mb-3">
+                <label for="price_max" class="form-label">Price Range (Max):</label>
+                <input type="number" class="form-control" id="price_max" name="price_max" value="{{ request.GET.price_max }}" placeholder="Max price" step="0.01">
+            </div>
+
+            <!-- Medium Filter -->
+            <div class="mb-3">
+                <label for="category" class="form-label">Medium:</label>
+                <select class="form-select" id="category" name="category">
+                    <option value="">All</option>
+                    {% for cat in categories %}
+                    <option value="{{ cat }}" {% if selected_category == cat %}selected{% endif %}>{{ cat|title }}</option>
+                {% endfor %}
+                </select>
+            </div>
+            
+            <!-- Artist Filter -->
+            <div class="mb-3">
+                <label for="artist" class="form-label">Artist:</label>
+                <select class="form-select" id="artist" name="artist">
+                    <option value="">All</option>
+                    {% for artist in artists %}
+                        <option value="{{ artist.id }}" {% if request.GET.artist == artist.id|stringformat:"s" %}selected{% endif %}>{{ artist.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="artist-filter">
+                <strong>Artist:</strong><br>
+            <!-- Added artist checkboxes dropdown -->
+            <select name="artist" onchange="this.form.submit()">
+                    <option value="">All</option>
+                    {% for artist in artists %}
+                        <option value="{{ artist.id }}" {% if request.GET.artist == artist.id|stringformat:"s" %}selected{% endif %}>
+                            {{ artist.name }}
+                        </option>
+                    {% endfor %}
+                </select>     
+            </div>   
+            <!-- Sort Filter -->
+            <div class="mb-3">
+                <label for="sort" class="form-label">Sort by:</label>
+                <select class="form-select" id="sort" name="sort">
+                    <option value="newest" {% if request.GET.sort == "newest" %}selected{% endif %}>Newest</option>
+                    <option value="popular" {% if request.GET.sort == "popular" %}selected{% endif %}>Popular</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary me-2">Apply Filters</button>
+            <a href="{% url 'artworks_list' %}" class="btn btn-secondary">Clear Filters</a>
+
+        </form>
     </aside>
 
     <!-- Main Content -->
@@ -24,7 +74,11 @@
             {% for artwork in artworks %}
                 <div class="artwork-card">
                     <a href="{% url 'artwork_detail' artwork.id %}">
-                        <img src="{% static 'main/images/' %}{{ artwork.image }}" alt="{{ artwork.title }}" class="artwork-image">
+                        {% if artwork.image %}
+                            <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="artwork-image">
+                        {% else %}
+                            <img src="{% static 'main/images/placeholder.png' %}" alt="No image" class="artwork-image">
+                        {% endif %}
                         <h4>{{ artwork.title }}</h4>
                     </a>
                     <p><strong>By:</strong> {{ artwork.artist }}</p>
@@ -33,6 +87,8 @@
                     <p><strong>Description:</strong>{{ artwork.description | truncatechars:80 }}</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
+            {% empty%}
+                <p>No artworks available.</p>
             {% endfor %}
         </div>
     </section>

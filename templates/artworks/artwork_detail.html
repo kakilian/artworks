@@ -4,6 +4,10 @@
 {% block content %}
 <div class="artwork_detail-container">
     <h2>{{ artwork.title }}</h2>
+
+    {% if artwork.is_sold %}
+    <span class="sold-badge" style="color: red; font-weight: bold; margin-left: 15px;">SOLD</span>
+    {% endif %}
     {% if artwork.image %}
       <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="artwork-image">
     {% else %}

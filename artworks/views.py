@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 from django.http import JsonResponse
 from .models import Artwork, Artist, Cart, CartItem
+from django.db.models import Q
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 print("Stripe Secret Key:", settings.STRIPE_SECRET_KEY)
@@ -14,18 +15,41 @@ print("Stripe Secret Key:", settings.STRIPE_SECRET_KEY)
 
 def artwork_list(request):
     category = request.GET.get('category')
+    artist_id = request.GET.get('artist')
+    price_min = request.GET.get('price_min')
+    price_max = request.GET.get('price_max')
+    sort = request.GET.get('sort')
+
+    artworks = Artwork.objects.all()
+
     if category:
-        filtered_artworks = Artwork.objects.filter(category=category)
+        artworks = artworks.filter(category=category)
+
+    if artist_id:
+        artworks = artworks.filter(artist_id=artist_id)
+
+    if price_min:
+        artworks = artworks.filter(price__gte=price_min)
+
+    if price_max:
+        artworks = artworks.filter(price__lte=price_max)
+
+    if sort == 'popular':
+        artworks = artworks.order_by('-price')  # example popular logic
     else:
-        filtered_artworks = Artwork.objects.all()
+        artworks = artworks.order_by('-id')  # newest first
 
     categories = Artwork.objects.values_list('category', flat=True).distinct()
+    artists = Artist.objects.all()
+
     context = {
-        'artworks': filtered_artworks,
+        'artworks': artworks,
         'categories': categories,
+        'artists': artists,
         'selected_category': category,
     }
     return render(request, 'artworks/artworks_list.html', context)
+
 
 
 def artwork_detail(request, pk):
@@ -134,9 +158,11 @@ def checkout_page(request):
 
 @login_required
 def payment_success(request):
-    return render(request, 'artworks/payment.html')
+    return render(request, 'artworks/success.html')
 
 
 @login_required
 def payment_cancel(request):
     return render(request, 'artworks/cancel.html')
+
+

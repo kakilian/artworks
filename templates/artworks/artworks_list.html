@@ -65,7 +65,7 @@
             {% if artwork.image %}
             <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="artwork-image">
             {% else %}
-            <img src="{% static 'main/images/placeholder.png' %}" alt="Placeholder image" class="artwork-image">
+            <img src="{% static 'images/placeholder.png' %}" alt="Placeholder image" class="artwork-image">
             {% endif %}
                 <h4>{{ artwork.title }}</h4>
             </a>

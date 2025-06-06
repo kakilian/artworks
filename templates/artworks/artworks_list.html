@@ -8,7 +8,7 @@
     <aside class="filters card p-3 mb-4">
         <h3 class="card-title mb-3">Filter Bar</h3>
 
-         <form method="get" action="{% url 'artworks_list' %}">
+        <form method="get" action="{% url 'artworks_list' %}">
             <!-- Price Range -->
             <div class="mb-3">
                 <label for="price_min" class="form-label">Price Range (Min):</label>
@@ -26,7 +26,7 @@
                     <option value="">All</option>
                     {% for cat in categories %}
                     <option value="{{ cat }}" {% if selected_category == cat %}selected{% endif %}>{{ cat|title }}</option>
-                {% endfor %}
+                    {% endfor %}
                 </select>
             </div>
             
@@ -36,23 +36,11 @@
                 <select class="form-select" id="artist" name="artist">
                     <option value="">All</option>
                     {% for artist in artists %}
-                        <option value="{{ artist.id }}" {% if request.GET.artist == artist.id|stringformat:"s" %}selected{% endif %}>{{ artist.name }}</option>
+                    <option value="{{ artist.id }}" {% if request.GET.artist == artist.id|stringformat:"s" %}selected{% endif %}>{{ artist.name }}</option>
                     {% endfor %}
                 </select>
             </div>
 
-            <div class="artist-filter">
-                <strong>Artist:</strong><br>
-            <!-- Added artist checkboxes dropdown -->
-            <select name="artist" onchange="this.form.submit()">
-                    <option value="">All</option>
-                    {% for artist in artists %}
-                        <option value="{{ artist.id }}" {% if request.GET.artist == artist.id|stringformat:"s" %}selected{% endif %}>
-                            {{ artist.name }}
-                        </option>
-                    {% endfor %}
-                </select>     
-            </div>   
             <!-- Sort Filter -->
             <div class="mb-3">
                 <label for="sort" class="form-label">Sort by:</label>
@@ -72,24 +60,28 @@
     <section class="artwork-section">
         <div class="artwork-grid">
             {% for artwork in artworks %}
-                <div class="artwork-card">
-                    <a href="{% url 'artwork_detail' artwork.id %}">
-                        {% if artwork.image %}
-                            <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="artwork-image">
-                        {% else %}
-                            <img src="{% static 'main/images/placeholder.png' %}" alt="No image" class="artwork-image">
-                        {% endif %}
-                        <h4>{{ artwork.title }}</h4>
-                    </a>
-                    <p><strong>By:</strong> {{ artwork.artist }}</p>
-                    <p><strong>€:</strong> {{ artwork.price }}</p>
-                    <p><strong>Dimensions:</strong>{{ artwork.dimensions }}</p>
-                    <p><strong>Description:</strong>{{ artwork.description | truncatechars:80 }}</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-            {% empty%}
-                <p>No artworks available.</p>
-            {% endfor %}
+        <div class="artwork-card">
+            <a href="{% url 'artwork_detail' artwork.id %}">
+            {% if artwork.image %}
+            <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="artwork-image">
+            {% else %}
+            <img src="{% static 'main/images/placeholder.png' %}" alt="Placeholder image" class="artwork-image">
+            {% endif %}
+                <h4>{{ artwork.title }}</h4>
+            </a>
+            <p><strong>By:</strong> {{ artwork.artist }}</p>
+            <p><strong>€:</strong> {{ artwork.price }}</p>
+            <p><strong>Dimensions:</strong> {{ artwork.dimensions }}</p>
+            <p><strong>Description:</strong> {{ artwork.description | truncatechars:80 }}</p>
+
+            <form method="post" action="{% url 'add_to_cart' artwork.id %}">
+                {% csrf_token %}
+            <button type="submit" class="btn btn-success btn-lg">Add to Cart</button>
+            </form>
+        </div>
+{% empty %}
+  <p>No artworks available.</p>
+{% endfor %}
         </div>
     </section>
 </div>

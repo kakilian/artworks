@@ -90,7 +90,7 @@
 
 To enhance user experience, a custom-designed **404 Error Page** was implemented. Rather than displaying a default error, users are shown a creative and on-brand message to keep them engaged:
 
-> "_Even artists get lost sometimes. Let’s get you back on track!_"
+ "_Even artists get lost sometimes. Let’s get you back on track!_"
 
 - Features colorful imagery using artistic tools (paintbrushes)
 - Uses playful, encouraging text

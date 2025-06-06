@@ -109,6 +109,7 @@ def cart_page(request):
 
 
 @login_required
+@require_POST
 def add_to_cart(request, artwork_id):
     artwork = get_object_or_404(Artwork, id=artwork_id)
     cart, created = Cart.objects.get_or_create(user=request.user)

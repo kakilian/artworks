@@ -151,6 +151,35 @@ body {
     background: #e0f7fa;
 }
 
+/* Hero Section */
+.hero-container {
+    text-align: center;
+    margin: 2em 0;
+    padding: 2em;
+    background: #e6f2e6; /* consistent with header */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 128, 0, 0.1);
+}
+
+.hero-container h2 {
+    color: #2e7d32; /* darker green */
+    margin-bottom: 0.5em;
+}
+
+.hero-container p {
+    color: #555; /* softer text color */
+    font-size: 1.1rem;
+    margin-bottom: 1.5em;
+}
+
+/* Hero Image */
+.hero-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 128, 0, 0.1);
+}
+
 /* Footer Social Links */
 .site-footer {
     background-color: #e6f2e6; /* consistent with header */
@@ -358,16 +387,27 @@ button, .add-to-cart, a {
 
 /* Responsive tweaks */
 @media (max-width: 650px) {
-  .cart-item, .checkout-item {
+    .cart-item, .checkout-item {
     flex-direction: column;
     align-items: flex-start;
-  }
+    }
 
-  .cart-item img, .checkout-item img {
+    .cart-item img, .checkout-item img {
     margin-bottom: 10px;
-  }
+    }
 
-  .order-summary {
+    .order-summary {
     max-width: 100%;
-  }
+    }
+    .landing-intro {
+      padding: 40px 15px;
+    }
+
+    .landing-intro h1 {
+      font-size: 2rem;
+    }
+
+    .landing-intro p {
+      font-size: 1rem;
+    }
 }

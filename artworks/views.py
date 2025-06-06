@@ -10,7 +10,6 @@ from .models import Artwork, Artist, Cart, CartItem
 from django.db.models import Q
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
-print("Stripe Secret Key:", settings.STRIPE_SECRET_KEY)
 
 
 def artwork_list(request):
@@ -51,10 +50,13 @@ def artwork_list(request):
     return render(request, 'artworks/artworks_list.html', context)
 
 
-
 def artwork_detail(request, pk):
     artwork = get_object_or_404(Artwork, pk=pk)
     return render(request, 'artworks/artwork_detail.html', {'artwork': artwork})
+
+
+def custom_404_view(request, _exception):
+    return render(request, '404.html', status=404)
 
 
 @login_required

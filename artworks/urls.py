@@ -6,6 +6,10 @@ from .views import (
 )
 
 
+def test_404(request):
+    return render(request, '404.html', status=404)
+
+
 urlpatterns = [
     path('', artwork_list, name='artworks_list'),         # /artworks/
     path('<int:pk>/', artwork_detail, name='artwork_detail'),  # /artworks/
@@ -18,4 +22,5 @@ urlpatterns = [
     path('create-checkout-session/', create_checkout_session, name='create_checkout_session'),  # /artworks/create-checkout-session/
     path('add_to_cart/<int:artwork_id>/', add_to_cart, name='add_to_cart'),  # /artworks/add_to_cart/
     path('accounts/', include('allauth.urls')),  # /artworks/accounts/
+    path('test-404/', test_404),
 ]

@@ -9,12 +9,16 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+from dotenv import load_dotenv
 import dj_database_url
 import os
 from pathlib import Path
-from dotenv import load_dotenv
 
 load_dotenv()  # to take environment variables from a .env file, if it exists
+
+
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+print(f"DEBUG is set to: {DEBUG}")
 
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
@@ -32,13 +36,11 @@ if os.path.exists(os.path.join(BASE_DIR, 'env.py')):
 # SECURITY WARNING: keep the secret key used in production secret!
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-#1#r_v$t)aucw21za)^_)$u10ul%#=b0-=jsm(t)1x^i-=gl$k')
-DEBUG = os.environ.get('DEBUG', 'False') == 'False'
-''
+
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = [
     'localhost',
-    '127.0.0.1:8000',
     '127.0.0.1',
     '.codeinstitute-ide.net',
     '.herokuapp.com',

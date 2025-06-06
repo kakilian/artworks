@@ -1,0 +1,31 @@
+{% extends 'artworks/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="text-center my-5">
+
+    <h1>Oops! Page Not Found (404)</h1>
+    
+    <p class="multicolor-italic-text fst-italic my-4">
+        Even artists get lost sometimes. Let's get you back on track!
+    </p>
+
+    <img src="{% static 'templates/404.html' %}" alt="Paint Brushes" class="img-fluid my-4" style="max-width: 300px;" />
+
+    <p><a href="{% url 'artworks_list' %}" class="btn btn-primary">Return to Homepage</a></p>
+
+</div>
+
+<style>
+.multicolor-italic-text {
+    font-style: italic;
+    font-weight: 600;
+    background: linear-gradient(90deg, #ff6a00, #ee0979, #ff6a00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.25rem;
+}
+</style>
+{% endblock %}

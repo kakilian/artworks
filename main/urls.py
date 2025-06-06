@@ -7,15 +7,10 @@ from django.shortcuts import render
 import os
 
 
-def test_404(request):
-    return render(request, '404.html', status=404)
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='home/index.html'), name='home'),
     path('artworks/', include('artworks.urls')),
-    path('test-404/', test_404),  # For testing your 404 page
 ]
 
 if settings.DEBUG:

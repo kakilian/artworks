@@ -1,4 +1,5 @@
 from django.urls import path, include
+from django.shortcuts import render
 from .views import (
      artwork_list, artwork_detail, cart_page, update_quantity,
      remove_item, checkout_page, add_to_cart, payment_success,

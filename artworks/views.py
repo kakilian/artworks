@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 from django.http import JsonResponse
 from .models import Artwork, Artist, Cart, CartItem
-from django.db.models import Q
+
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 

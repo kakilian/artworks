@@ -112,7 +112,7 @@ To enhance user experience, a custom-designed **404 Error Page** was implemented
 
 ###  Back-End Tools
 
-`Django Models` • `SQLite` • `PostgreSQL` 
+`Django Models` • `PostgreSQL` 
 
 ###  E-Commerce & Marketing
 
@@ -128,7 +128,7 @@ To enhance user experience, a custom-designed **404 Error Page** was implemented
 
 ###  Additional Tools
 
-`Microsoft Word (for wireframes)` • `TinyPNG` • `Google Lighthouse` • `W3C Validators`
+`Microsoft Word (for wireframes)` • `Google Lighthouse` • `W3C Validators`
 
 
 ## Facebook Business Page
@@ -211,6 +211,10 @@ Although integration with Mailchimp was not completed (due to trial limits), the
 - Clear opt-in messaging
 - Confirmation message upon submission
 - Privacy reassurance (no spam!)
+
+
+[Back to Top](#top)
+
 
 ### Screenshot Example:
 ![Newsletter Signup Form](documentation/newsletter-signup.png)

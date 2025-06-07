@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Katarina" />
+    <meta name="author" content="Katarina Kilian" />
     <meta name="description" content="Explore a curated collection of artworks from various artists. Discover, filter, and purchase unique pieces that resonate with your taste." />
     <meta name="keywords" content="artworks, artists, paintings, sculptures, art gallery, online art store" />
     <title>{% block title %}Artworks{% endblock %}</title>
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="{% static images/favicon/favicon.ico' %}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{% static 'images/favicon/favicon.ico' %}" type="image/x-icon" />
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}" />
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}" />
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}" />
@@ -30,18 +30,19 @@
     <!-- Navbar Global -->
     <header class="header d-flex align-items-center">
         <a href="{% url 'home' %}">
-            <img src="{% static 'images/logo/logo.png' %}" alt="Artworks Logo" style="height: 100px; margin-right: 20px;" />
+            <img src="{% static 'images/logo/logo.png' %}" alt="Artworks Logo, eye catching yellow, combined with purple writing showing Artworks" style="height: 100px; margin-right: 20px;" />
         </a>
-        <h1 style="margin:0;"></h1>
-        <nav class="nav-menu">
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'artworks_list' %}">Artworks</a>
-            <a href="#">Artists</a>
-            <div class="dropdown">
-                <button class="dropbtn">Coming Up Events</button>
-                <div class="dropdown-content">
-                    <a href="#">Exhibitions</a>
-                    <a href="#">Workshops</a>
+        <h1 style="margin:0;">Artworks</h1>
+        <nav role="navigation" aria-label="Main">
+            <ul class="nav-menu">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'artworks:artworks_list' %}">Artworks</a></li>
+            <li><a href="#">Artists</a></li> <!-- Placeholder -->
+            <div class="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="dropbtn"aria-controls="events-menu">Coming Up Events</button>
+                <div id="events-menu" class="dropdown-content" role="menu">
+                    <a role="menuitem" href="#">Exhibitions</a> <!-- Placeholder -->
+                    <a role="menuitem" href="#">Workshops</a> <!-- Placeholder -->
                 </div>
             </div>
         </nav>
@@ -56,7 +57,7 @@
     {% include 'artworks/footer.html' %}
 
     <footer>
-        
+
     </footer>
 
     <!-- Bootstrap JS Bundle -->

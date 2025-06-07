@@ -8,7 +8,7 @@
     <aside class="filters card p-3 mb-4">
         <h3 class="card-title mb-3">Filter Bar</h3>
 
-        <form method="get" action="{% url 'artworks_list' %}">
+        <form method="get" action="{% url 'artworks:artworks_list' %}">
             <!-- Price Range -->
             <div class="mb-3">
                 <label for="price_min" class="form-label">Price Range (Min):</label>
@@ -51,7 +51,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary me-2">Apply Filters</button>
-            <a href="{% url 'artworks_list' %}" class="btn btn-secondary">Clear Filters</a>
+            <a href="{% url 'artworks:artworks_list' %}" class="btn btn-secondary">Clear Filters</a>
 
         </form>
     </aside>
@@ -61,7 +61,7 @@
         <div class="artwork-grid">
             {% for artwork in artworks %}
         <div class="artwork-card">
-            <a href="{% url 'artwork_detail' artwork.id %}">
+            <a href="{% url 'artworks:artwork_detail' artwork.id %}">
             {% if artwork.image %}
             <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="artwork-image">
             {% else %}
@@ -74,7 +74,7 @@
             <p><strong>Dimensions:</strong> {{ artwork.dimensions }}</p>
             <p><strong>Description:</strong> {{ artwork.description | truncatechars:80 }}</p>
 
-            <form method="post" action="{% url 'add_to_cart' artwork.id %}">
+            <form method="post" action="{% url 'artworks:add_to_cart' artwork.id %}">
                 {% csrf_token %}
             <button type="submit" class="btn btn-success btn-lg">Add to Cart</button>
             </form>

@@ -1,14 +1,11 @@
 from django.urls import path, include
-from django.shortcuts import render
 from .views import (
      artwork_list, artwork_detail, cart_page, update_quantity,
      remove_item, checkout_page, add_to_cart, payment_success,
-     payment_cancel, create_checkout_session
+     payment_cancel, create_checkout_session,
 )
-
-
-def test_404(request):
-    return render(request, '404.html', status=404)
+# Namespace for the APP - Artworks, this allows us to use that same URLS in other APP stopping conflicts
+app_name = 'artworks'
 
 
 urlpatterns = [
@@ -23,5 +20,4 @@ urlpatterns = [
     path('create-checkout-session/', create_checkout_session, name='create_checkout_session'),  # /artworks/create-checkout-session/
     path('add_to_cart/<int:artwork_id>/', add_to_cart, name='add_to_cart'),  # /artworks/add_to_cart/
     path('accounts/', include('allauth.urls')),  # /artworks/accounts/
-    path('test-404/', test_404),
 ]

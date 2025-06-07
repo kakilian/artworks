@@ -1,3 +1,12 @@
+/*This is Global settings for the website */
+:root {
+    --color-primary-light: #e0f7fa; /* Green */
+    --color-text: #222;
+}
+/* Navigation Menu */
+.nav-menu a:hover { background: var(--color-primary-light); } 
+.nav-menu a { color:var(--color-text); }
+
 /* Base Body */
 body {
     background: #f3fff3;
@@ -102,19 +111,20 @@ body {
     margin-top: 1em;
 }
 
-.nav-menu a,
-.nav-menu .dropbtn {
+.nav-menu a:focus,
+.nav-menu .dropbtn:focus {
     font-size: 1rem;       
     padding: 0.4em 1em;
     color: #222;
     text-decoration: none;
     border-radius: 4px;
     transition: background 0.2s;
-    background: none;
+    background: #b2dfdb; /* light green background for focus */
     border: none;
     cursor: pointer;
     font-family: inherit;
-}
+    outline: 2px solid #4caf50; /* green outline for focus */
+} 
 
 .nav-menu a:hover,
 .nav-menu .dropbtn:hover {
@@ -132,23 +142,30 @@ body {
     background: #fff;
     min-width: 160px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.07);
-    z-index: 1;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
-.dropdown-content a {
+.dropdown-content a:focus {
     display: block;
     padding: 0.5em 1em;
     color: #222;
-    background: none;
+    background: #b2dfdb; /* light green background for focus */;
     border-radius: 0;
+    outline: none;
 }
 
 .dropdown-content a:hover {
     background: #e0f7fa;
+
 }
 
 /* Hero Section */
@@ -377,27 +394,41 @@ button, .add-to-cart, a {
 
 /* Responsive tweaks */
 @media (max-width: 650px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 0.5em;
+        margin-top: 0.5em;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    .dropdown .dropbtn::after {
+        content: " ▼";
+    }    
+
     .cart-item, .checkout-item {
-    flex-direction: column;
-    align-items: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .cart-item img, .checkout-item img {
-    margin-bottom: 10px;
+        margin-bottom: 10px;
     }
 
     .order-summary {
-    max-width: 100%;
+        max-width: 100%;
     }
     .hero-container {
-      padding: 40px 15px;
+        padding: 40px 15px;
     }
 
     .hero-container h2 {
-      font-size: 2rem;
+        font-size: 2rem;
     }
 
     .hero-container p {
-      font-size: 1rem;
+        font-size: 1rem;
     }
 }

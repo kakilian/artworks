@@ -1,5 +1,3 @@
-{% extends 'artworks/base.html' %}
-{% load static %}
 
 # in home/urls.py
 from django.urls import path

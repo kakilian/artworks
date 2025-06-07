@@ -4,8 +4,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
-from django.urls import reverse
 from django.http import JsonResponse
+from django.contrib import messages
+
 from .models import Artwork, Artist, Cart, CartItem
 
 
@@ -56,7 +57,7 @@ def artwork_detail(request, pk):
 
 
 def custom_404_view(request, _exception):
-    return render(request, '404.html', status=404)
+    return render(request, 'artworks:404.html', status=404)
 
 
 @login_required
@@ -92,7 +93,7 @@ def create_checkout_session(request):
 
 @login_required
 def cart_page(request):
-    cart, created = Cart.objects.get_or_create(user=request.user)
+    cart, _ = Cart.objects.get_or_create(user=request.user)
     items = cart.items.select_related('artwork')
 
     subtotal = cart.subtotal()
@@ -112,14 +113,15 @@ def cart_page(request):
 @require_POST
 def add_to_cart(request, artwork_id):
     artwork = get_object_or_404(Artwork, id=artwork_id)
-    cart, created = Cart.objects.get_or_create(user=request.user)
-
-    cart_item, created = CartItem.objects.get_or_create(cart=cart, artwork=artwork)
-    if not created:
-        cart_item.quantity += 1
-        cart_item.save()
-
-    return redirect('cart_page')
+    cart, _ = Cart.objects.get_or_create(user=request.user)
+    if cart.items.filter(artwork=artwork).exists():
+        messages.info(request, 'This artwork is already in your cart.') # Inform user if item is already in cart
+    else:
+        # Create a new cart item if it doesn't already exist    
+        cart.items.create(artwork=artwork)
+        messages.success(request, f'Added "{artwork.title}" to your cart.')
+        
+    return redirect('artworks:cart_page')
 
 
 @login_required
@@ -129,7 +131,7 @@ def update_quantity(request, item_id):
     quantity = int(request.POST.get('quantity', 1))
     item.quantity = max(1, quantity)
     item.save()
-    return redirect(reverse('cart_page'))
+    return redirect('artworks:cart_page')
 
 
 @login_required
@@ -137,7 +139,7 @@ def update_quantity(request, item_id):
 def remove_item(request, item_id):
     item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
     item.delete()
-    return redirect(reverse('cart_page'))
+    return redirect('artworks:cart_page')
 
 
 @login_required
@@ -167,5 +169,3 @@ def payment_success(request):
 @login_required
 def payment_cancel(request):
     return render(request, 'artworks/cancel.html')
-
-

@@ -61,6 +61,11 @@ class CartItem(models.Model):
     artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['cart', 'artwork'], name='unique_cart_artwork')
+        ]
+
     def total_price(self):
         return self.artwork.price  # quantity always 1, so no multiplication
 

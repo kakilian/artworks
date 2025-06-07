@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="artwork_detail-container">
+<div class="artwork-detail-container">
     <h2>{{ artwork.title }}</h2>
 
     {% if artwork.is_sold %}
@@ -19,14 +19,14 @@
     {% endif %}
 
     {% if user.is_authenticated %}
-    <form method="post" action="{% url 'add_to_cart' artwork.id %}">
+    <form method="post" action="{% url 'artworks:add_to_cart' artwork.id %}">
       {% csrf_token %}
       <button type="submit" class="btn btn-success w-100">Add to Cart</button>
     </form>
     {% else %}
-      <p><a href="{% url 'login' %}">Log in</a> to add to cart.</p>
+      <p><a href="{% url 'artworks:login' %}">Log in</a> to add to cart.</p>
     {% endif %}
 
-    <a href="{% url 'artworks_list' %}">Back to all artworks</a>
+    <a href="{% url 'artworks:artworks_list' %}">Back to all artworks</a>
 </div>
 {% endblock %}

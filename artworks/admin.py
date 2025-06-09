@@ -1,22 +1,56 @@
+import os
+from django import forms
+from django.conf import settings
 from django.contrib import admin
 from django.utils.html import format_html
 from .models import Artwork, Artist, Cart, CartItem
+
+
+class ArtworkAdminForm(forms.ModelForm):
+    class Meta:
+        model = Artwork
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Builds choices from MEDIA_ROOT/artwork_images
+        folder = os.path.join(settings.MEDIA_ROOT, 'artwork_images')
+        choices = [('', '— Select an existing file —')]
+        if os.path.isdir(folder):
+            for fname in sorted(os.listdir(folder)):
+                full = os.path.join(folder, fname)
+                if os.path.isfile(full):
+                    # store the relative path so the ImageField can resolve it
+                    choices.append((f'artwork_images/{fname}', fname))
+
+        # Replace the image field with our ChoiceField
+        self.fields['image'] = forms.ChoiceField(
+            label="Select existing image",
+            choices=choices,
+            required=False,       # allowed to upload new images
+            help_text="Or leave blank and use the Upload button below to add a new file."
+        )
+
 
 @admin.register(Artist)
 class ArtistAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name', 'bio')
 
+
 @admin.register(Artwork)
 class ArtworkAdmin(admin.ModelAdmin):
+    form = ArtworkAdminForm
     list_display = ('title', 'artist', 'category', 'price', 'dimensions')
     list_filter = ('category', 'artist')
     search_fields = ('title', 'description', 'artist__name')
     readonly_fields = ('image_preview',)
-
     fieldsets = (
         (None, {
-            'fields': ('title', 'artist', 'category', 'price', 'image', 'image_preview', 'dimensions', 'description')
+            'fields': (
+                'title', 'artist', 'category',
+                'price', 'image', 'image_preview',
+                'dimensions', 'description')
         }),
     )
 
@@ -26,9 +60,11 @@ class ArtworkAdmin(admin.ModelAdmin):
         return "No image"
     image_preview.short_description = 'Current Image'
 
+
 @admin.register(Cart)
 class CartAdmin(admin.ModelAdmin):
     list_display = ('user',)
+
 
 @admin.register(CartItem)
 class CartItemAdmin(admin.ModelAdmin):

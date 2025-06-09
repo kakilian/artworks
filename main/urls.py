@@ -14,7 +14,7 @@ urlpatterns = [
             namespace='artworks',
         ),
     ),
-]   
+]
 
 # register custom 404 handler
 handler404 = 'artworks.views.custom_404_view'

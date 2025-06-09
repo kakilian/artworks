@@ -12,6 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddConstraint(
             model_name='cartitem',
-            constraint=models.UniqueConstraint(fields=('cart', 'artwork'), name='unique_cart_artwork'),
+            constraint=models.UniqueConstraint(fields=('cart', 'artwork'),
+            name='unique_cart_artwork'),
         ),
     ]

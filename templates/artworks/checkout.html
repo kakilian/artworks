@@ -42,7 +42,7 @@
     var checkoutButton = document.getElementById('checkout-button');
       if (checkoutButton) {
     checkoutButton.addEventListener('click', function () {
-      fetch("{% url 'create_checkout_session' %}", {
+      fetch("{% url 'artworks:create_checkout_session' %}", {
         method: 'POST',
         headers: {
                 'Content-Type': 'application/json',

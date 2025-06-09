@@ -1,5 +1,6 @@
 {% extends 'artworks/base.html' %}
 {% load static %}
+{% load markdown_deux_tags %}
 
 {% block content %}
 <div class="artwork-detail-container">
@@ -8,16 +9,25 @@
     {% if artwork.is_sold %}
     <span class="sold-badge" style="color: red; font-weight: bold; margin-left: 15px;">SOLD</span>
     {% endif %}
+    
     {% if artwork.image %}
       <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="artwork-image">
     {% else %}
         <p>No image available for this artwork.</p>
     {% endif %}
+
     <p><strong>Artist:</strong> {{ artwork.artist }}</p>
+
     {% if artwork.price %}
         <p><strong>Price:</strong> €{{ artwork.price }}</p>
     {% endif %}
-
+    
+    {% if artwork.description %}
+        <div class="artwork-description">
+          <p >{{ artwork.description|markdown:"safe" }}</p>
+      </div>
+    {% endif %}
+    
     {% if user.is_authenticated %}
     <form method="post" action="{% url 'artworks:add_to_cart' artwork.id %}">
       {% csrf_token %}

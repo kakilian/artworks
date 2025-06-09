@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'markdown_deux',  # For rendering Markdown in templates using admin
 
     # APPS
     'artworks',

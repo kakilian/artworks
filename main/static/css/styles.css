@@ -189,6 +189,24 @@ body {
     margin-bottom: 1.5em;
 }
 
+/* Description Section */
+.artwork-description {
+    font-style: italic;
+    max-width: 60ch;
+    margin: 0 auto 1.5em;
+    line-height: 1.6;
+    text-align:justify;
+    hyphens: auto;
+    word-spacing: 0,02em;
+}
+
+.artwork-description p:first-of-type::first-letter {
+    float: left;
+    font-size: 3rem;
+    line-height: 1;
+    margin-right: 0.1em;
+}
+
 /* Footer Social Links */
 .site-footer {
     background-color: #e6f2e6; /* consistent with header */

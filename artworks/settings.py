@@ -44,7 +44,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '.codeinstitute-ide.net',
     '.herokuapp.com',
-    'https://artworks-4v1w.onrender.com',
+    'artworks-4v1w.onrender.com',
     '18.156.158.53',
     '18.156.42.200',
     '52.59.103.54,',

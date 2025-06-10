@@ -124,7 +124,7 @@ To enhance user experience, a custom-designed **404 Error Page** was implemented
 
 ###  Development & Deployment
 
-`VS Code` • `Git` • `GitHub` • `GitHub Projects` • `Heroku` • `Gunicorn` • `Whitenoise`
+`VS Code` • `Git` • `GitHub` • `GitHub Projects` • `Render` • `Gunicorn` • `Whitenoise`
 
 ###  Additional Tools
 
@@ -301,7 +301,7 @@ Screenshots of the board before and during development have been included for as
 This application was deployed using **HEROKU**. The live site is available at:
 
 ![Live Site URL](https://artworks-a021b8151bbe.herokuapp.com/)
-![Github](https://github.com/kakilian/artworks.git)
+![Github](https/github.com/kakilian/kilian_berlin.git)
 
 - Deployment Steps:
 

@@ -1,0 +1,23 @@
+# Exported from Render on 2025-06-10T12:49:15Z
+services:
+- type: web
+  name: artworks
+  runtime: python
+  repo: https://github.com/kakilian/artworks
+  plan: free
+  envVars:
+  - key: DATABASE_URL
+    sync: false
+  - key: STRIPE_SECRET_KEY
+    sync: false
+  - key: STRIPE_PUBLISHABLE_KEY
+    sync: false
+  - key: DEBUG
+    sync: false
+  - key: SECRET_KEY
+    sync: false
+  region: frankfurt
+  buildCommand: pip install -r requirements.txt
+  startCommand: gunicorn artworks.wsgi
+  autoDeployTrigger: commit
+version: "1"

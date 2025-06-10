@@ -17,8 +17,8 @@ from pathlib import Path
 load_dotenv()  # to take environment variables from a .env file, if it exists
 
 
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
-print(f"DEBUG is set to: {DEBUG}")
+DEBUG = False
+
 
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
@@ -35,7 +35,7 @@ if os.path.exists(os.path.join(BASE_DIR, 'env.py')):
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-#1#r_v$t)aucw21za)^_)$u10ul%#=b0-=jsm(t)1x^i-=gl$k')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-...')
 
 
 # ALLOWED_HOSTS = []
@@ -44,6 +44,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '.codeinstitute-ide.net',
     '.herokuapp.com',
+    'artworks.render.com',
 ]
 
 

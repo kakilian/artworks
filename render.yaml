@@ -25,5 +25,5 @@ version: "1"
  # 👇 Add this block to serve /media/ from disk
 routes:
 - type: rewrite
-source: /media/(.*)
-destination: /media/$1
+  source: /media/(.*)
+  destination: /media/$1

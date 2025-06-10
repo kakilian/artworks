@@ -17,7 +17,7 @@ from pathlib import Path
 load_dotenv()  # to take environment variables from a .env file, if it exists
 
 
-DEBUG = False
+DEBUG = True
 
 
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
@@ -210,7 +210,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

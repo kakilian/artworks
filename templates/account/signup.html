@@ -2,10 +2,10 @@
 {% extends "artworks/base.html" %}
 {% load static %}
 
-
 {% block content %}
-  <h2>Sign Up (Custom Template Active)</h2>
-  <form method="post" action="{% url 'account_signup' %}">
+  <div class="auth-form">
+    <h2>Sign Up (Custom Template Active)</h2>
+    <form method="post" action="{% url 'account_signup' %}">
     {% csrf_token %}
     
     <p>
@@ -13,33 +13,34 @@
       {{ form.first_name }}
     </p>
 
-      <p>
+    <p>
     {{ form.last_name.label_tag }}
     {{ form.last_name }}
-  </p>
+    </p>
 
-  <p>
+    <p>
     {{ form.username.label_tag }}
     {{ form.username }}
-  </p>
+    </p>
 
-  <p>
+    <p>
     {{ form.email.label_tag }}
     {{ form.email }}
-  </p>
+    </p>
 
-  <p>
+    <p>
     {{ form.password1.label_tag }}
     {{ form.password1 }}
-  </p>
+    </p>
 
-  <p>
+    <p>
     {{ form.password2.label_tag }}
     {{ form.password2 }}
-  </p>
+    </p>
 
     <button type="submit">Sign Up</button>
   </form>
-  
+
   <p>Already have an account? <a href="{% url 'account_login' %}">Log in</a></p>
+  </div>
 {% endblock %}

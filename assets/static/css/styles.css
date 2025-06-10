@@ -242,6 +242,100 @@ body {
     color: #666; /* consistent with footer */
 }
 
+/* -- Auth Form Styles --*/
+.auth-form {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.auth-form p {
+  margin-bottom: 16px;
+}
+
+.auth-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #228822;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-form button:hover {
+  background: #1a661a;
+}
+
+.auth-form a {
+  color: #228822;
+  text-decoration: none;
+}
+
+.auth-form a:hover {
+  text-decoration: underline;
+  color: #1a661a;
+}
+
+/* -- Message Success */
+.message-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.message {
+  background-color: #e0ffe0;
+  border: 1px solid #99cc99;
+  color: #336633;
+  padding: 12px 20px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.message.error {
+  background-color: #ffe0e0;
+  border-color: #cc9999;
+  color: #663333;
+}
+
+.message.success {
+  background-color: #e0ffe0;
+  border-color: #99cc99;
+  color: #336633;
+}
+
 /* Cart Page Styles */
 .cart-items, .checkout-items {
     margin-bottom: 2rem;

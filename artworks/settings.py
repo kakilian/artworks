@@ -17,7 +17,7 @@ from pathlib import Path
 load_dotenv()  # to take environment variables from a .env file, if it exists
 
 
-DEBUG = False
+DEBUG = True
 
 
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
@@ -68,8 +68,7 @@ INSTALLED_APPS = [
 
     # APPS
     'artworks',
-    'home',
-    'main',
+    'assets',
 ]
 
 
@@ -87,7 +86,7 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
 ]
 
-ROOT_URLCONF = 'main.urls'
+ROOT_URLCONF = 'artworks.urls_project'
 
 TEMPLATES = [
     {
@@ -197,19 +196,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'main' / 'static',
-    BASE_DIR / 'home' / 'static',
-]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

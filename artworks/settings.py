@@ -48,6 +48,7 @@ ALLOWED_HOSTS = [
     '18.156.158.53',
     '18.156.42.200',
     '52.59.103.54,',
+    'artworks-1-zwdl.onrender.com',
 ]
 
 

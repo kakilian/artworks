@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from decimal import Decimal
+from cloudinary.models import CloudinaryField
 
 
 class Artist(models.Model):
@@ -27,9 +28,7 @@ class Artwork(models.Model):
         default='painting'
     )
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(
-        upload_to='artwork_images/',
-        blank=True, null=True)
+    image = CloudinaryField('image')  # Using Cloudinary for image storage
     dimensions = models.CharField(
         max_length=100,
         blank=True,

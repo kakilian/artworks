@@ -18,7 +18,7 @@ urlpatterns = [
         ),
     ),
 ]
-
+# Tells Django to serve static files in development
 if settings.DEBUG:
     urlpatterns += static(
         settings.MEDIA_URL,

@@ -17,7 +17,7 @@ from pathlib import Path
 load_dotenv()  # to take environment variables from a .env file, if it exists
 
 
-DEBUG = False
+DEBUG = True
 
 
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
@@ -65,11 +65,22 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'markdown_deux',  # For rendering Markdown in templates using admin
-
+    'cloudinary',  # For image uploads
+    'cloudinary_storage',  # For storing images in Cloudinary
     # APPS
-    'artworks',
+    'artworks.apps.ArtworksConfig',  # The main app for artworks/ For Render
     'assets',
 ]
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+}
+
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 MIDDLEWARE = [

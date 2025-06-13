@@ -8,4 +8,8 @@ class ArtworksConfig(AppConfig):
     name = 'artworks'
 
     def ready(self):
-        os.makedirs(os.path.join(settings.MEDIA_ROOT, 'artwork_images'), exist_ok=True)
+        os.makedirs(os.path.join(
+            settings.MEDIA_ROOT,
+            'artwork_images'
+              ),
+                exist_ok=True)

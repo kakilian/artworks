@@ -21,6 +21,16 @@
 - [Deployment](#deployment)
 - [Testing the Deployment](#testing-the-deployment)
 - [Final Project Feature Checklist](#final-project-feature-checklist)
+* [Bugs](#bugs)
+
+  * [Media File Bug Fix and Cloud Setup (Render.com)](#media-file-bug-fix-and-cloud-setup-rendercom)
+  * [Steps Taken to Fix (Render)](#steps-taken-to-fix-render)
+  * [Cloudinary Breakthrough](#cloudinary-breakthrough)
+  * [Why Cloudinary?](#why-cloudinary)
+  * [Cloudinary Integration (Final Media Setup)](#cloudinary-integration-final-media-setup)
+  * [Upload Methods + Test Results](#upload-methods--test-results)
+  * [Outcome](#outcome)
+
 
 ## About the Project
 
@@ -46,6 +56,10 @@
  - Stay Inspired. Get New Art in Your Inbox.
     - Be the first to hear about featured artists, new arrivals, and exclusive offers.
     (No Spam, unsubscribe anytime.)
+
+---
+[Back to Top](#top)
+
 
 ## 404 Page Text
 
@@ -97,6 +111,9 @@ To enhance user experience, a custom-designed **404 Error Page** was implemented
 - Links users back to the homepage or suggested pages
 - Reflects the tone and theme of the overall website
 
+---
+[Back to Top](#top)
+
 ### Preview:
 ![Custom 404 Page](documentation/404-page.png)
 
@@ -124,7 +141,7 @@ To enhance user experience, a custom-designed **404 Error Page** was implemented
 
 ###  Development & Deployment
 
-`VS Code` • `Git` • `GitHub` • `GitHub Projects` • `Render` • `Gunicorn` • `Whitenoise`
+`VS Code` • `Git` • `GitHub` • `GitHub Projects` • `Render` • `Gunicorn` • `Whitenoise` `Cloudinary`
 
 ###  Additional Tools
 
@@ -153,7 +170,8 @@ This exercise reinforces the importance of integrating social platforms into a b
 * **Welcome post** introducing the brand and its mission
 * **Descriptive post** explaining the logo and what the site offers
 
-
+---
+[Back to Top](#top)
 
 ### Screenshots
 
@@ -177,10 +195,7 @@ This exercise reinforces the importance of integrating social platforms into a b
   <img src="documentation/facebook-logo-description.png" alt="Facebook Favicon Logo" width="200"/>
 </p>
 
-
-
-
-
+---
 ### Note for Assessors
 
 As Facebook frequently removes inactive or mock pages, screenshots were taken to verify that this task was completed and should be considered during assessment.
@@ -212,7 +227,7 @@ Although integration with Mailchimp was not completed (due to trial limits), the
 - Confirmation message upon submission
 - Privacy reassurance (no spam!)
 
-
+---
 [Back to Top](#top)
 
 
@@ -382,6 +397,9 @@ Manual walkthroughs were conducted on:
 - Invalid form submissions (empty or invalid email in newsletter form)
 - Cart session persistence across page refreshes
 
+---
+[Back to Top](#top)
+
 ![Testing](documentation/screenshots/testing)
 
 ## Final Project Feature Checklist
@@ -414,6 +432,171 @@ Below is a summary of the core requirements and features implemented in this pro
 
 [Back to Top](#top)
 
-    
 
+## BUGS
+
+###  Media File Bug Fix and Cloud Setup (Render.com)
+
+**Issue**
+
+- After an initial failed deployment to Heroku due to unstable database and media file handling, I switched over to Render.com.
+
+- While Render offered persistent disk storage, the setup process was long and filled with trial and error. Key challenges included:
+
+    - Understand how media storage works on a cloud server
+
+    - Configure routes to serve uploaded files
+
+    - Ensure the database and media persisted across restarts
+
+    - Eventually, with persistence (and a lot of trial and error), the following setup worked:
+
+        - Render persistent disk purchased + mounted
+
+        - Django settings updated with proper MEDIA_ROOT and MEDIA_URL
+
+        - Static and media routing handled via render.yaml rewrite rules
+
+        - Image uploads now display correctly after re-deploys
+
+
+---
+[Back to Top](#top)
+
+
+
+**Steps Taken to Fix (Render)**
+
+1. **Purchased Persistent Disk**
+    - Upgraded the Render plan to include persistent media storage.
+
+2. **Updated Media File Paths in Django**
+    - In settings.py:
+
+```
+python
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+```
+
+
+
+3. **Enabled Local Dev Serving**
+    - In urls.py:
+
+```
+python
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
+
+4. **Added Production Route for Media in render.yaml**
+```
+yaml
+
+routes:
+  - type: rewrite
+    source: /media/(.*)
+    destination: /media/$1
+```
+
+
+
+5. **Upload Test**
+    - Images uploaded through Django admin were persistent and displayed correctly — a temporary success.
+
+**Takeaway:**
+        - This taught me how essential it is to fully understand how platforms like Render handle static and media files. Despite success, I found this approach clunky, expensive, and prone to conflicts.
+
+---
+[Back to Top](#top)
+
+
+## Cloudinary Breakthrough
+
+- **Eventually,** I made the decision to delete the paid persistent disk and migrate to *Cloudinary*, a cloud-based media solution.
+
+### Why Cloudinary?
+ - Better long-term scalability   
+ - Free tier available
+ - Built-in optimization and CDN support
+ - No need to manage media storage locally or via Render disk
+
+
+
+---
+[Back to Top](#top)
+
+
+### Cloudinary Integration(Final Media Setup)
+
+1. **Install Packages**
+
+```
+pip install cloudinary django-cloudinary-storage
+pip freeze > requirements.txt
+```
+
+2. **Update** ```INSTALLED_APPS```
+```
+INSTALLED_APPS = [
+    ...
+    'cloudinary',
+    'cloudinary_storage',
+]
+```
+ 
+3. **Configure in** ```settings.py```
+```
+python
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'my-cloud-name',
+    'API_KEY': 'my-api-key',
+    'API_SECRET': 'my-api-secret',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+```
+
+   **Pro-Tip:**  Load credentials from ```.env``` using ```os.environ.get(...)```.
+        
+4. **Add to** ```ALLOWED_HOSTS```
+
+```
+python
+
+ALLOWED_HOSTS = ['artworks-4v1w.onrender.com', 'res.cloudinary.com']
+```
+
+5. **Removed Old Render Media Routing**
+
+    - Deleted the ```render.yaml``` rewrite rule for ```/media/```
+    - Confirmed that Django was no longer trying to pull from two sources
+    - Prevented future bugs like double-loading, missing files, or broken paths
+
+6. **Upload Methods + Test Results**
+
+- I tested media integration two ways:
+
+    Uploaded directly from my PC via the Django admin, which successfully pushed files to Cloudinary.
+
+    Also uploaded manually through the Cloudinary dashboard to explore flexibility and control over file structure.
+
+- Both methods confirmed that Cloudinary was correctly configured and serving media files reliably in production. There might be more automated options out there, but this hands-on method worked — and now the images are up, optimized, and loading clean.
+
+### Outcome:
+- The journey from ```Heroku -> Render -> Cloudinary``` gave me deep insight into media storage strategies in Django. It wasn't the shortest route, but it got the job done and gave me real-world deployment skills.
+
+---
+[Back to Top](#top)
+[Back to Top](#top)
+[Back to Top](#top)
+[Back to Top](#top)
+[Back to Top](#top)
+[Back to Top](#top)
+[Back to Top](#top)
+[Back to Top](#top)
 

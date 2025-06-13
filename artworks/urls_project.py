@@ -18,12 +18,7 @@ urlpatterns = [
         ),
     ),
 ]
-# Tells Django to serve static files in development
-if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT
-    )
+
 
 # register custom 404 handler
 handler404 = 'artworks.views.custom_404_view'

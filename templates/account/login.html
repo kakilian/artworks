@@ -1,0 +1,16 @@
+{% extends 'artworks/base.html' %}
+{% load static %}
+
+<!-- templates/account/login.html -->
+
+
+{% block content %}
+  <h2>Login</h2>
+  <form method="post" action="{% url 'account_login' %}" class="auth-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Log In</button>
+  </form>
+  <p><a href="{% url 'account_reset_password' %}">Forgot Password?</a></p>
+  <p>Don't have an account? <a href="{% url 'account_signup' %}">Sign up</a></p>
+{% endblock %}

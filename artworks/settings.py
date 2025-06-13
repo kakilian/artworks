@@ -17,8 +17,8 @@ from pathlib import Path
 load_dotenv()  # to take environment variables from a .env file, if it exists
 
 
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
-print(f"DEBUG is set to: {DEBUG}")
+DEBUG = False
+
 
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
@@ -35,7 +35,7 @@ if os.path.exists(os.path.join(BASE_DIR, 'env.py')):
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-#1#r_v$t)aucw21za)^_)$u10ul%#=b0-=jsm(t)1x^i-=gl$k')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-...')
 
 
 # ALLOWED_HOSTS = []
@@ -44,6 +44,10 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '.codeinstitute-ide.net',
     '.herokuapp.com',
+    'artworks-4v1w.onrender.com',
+    '18.156.158.53',
+    '18.156.42.200',
+    '52.59.103.54,',
 ]
 
 
@@ -64,8 +68,7 @@ INSTALLED_APPS = [
 
     # APPS
     'artworks',
-    'home',
-    'main',
+    'assets',
 ]
 
 
@@ -83,7 +86,7 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
 ]
 
-ROOT_URLCONF = 'main.urls'
+ROOT_URLCONF = 'artworks.urls_project'
 
 TEMPLATES = [
     {
@@ -113,15 +116,19 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_FORMS = {
+    'signup': 'artworks.forms.CustomSignupForm',  # Custom signup form
+}
 
 ACCOUNT_LOGIN_METHODS = {'username', 'email'}
-ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
+ACCOUNT_SIGNUP_FIELDS = ['username*', 'email*', 'password1*', 'password2*']
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_USERNAME_MIN_LENGTH = 4
-ACCOUNT_LOGOUT_REDIRECT_URL = '/artworks/accounts/login/'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+LOGIN_REDIRECT_URL = '/artworks/'
 
 
 # Provider specific settings
@@ -193,16 +200,21 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'main' / 'static',
-    BASE_DIR / 'home' / 'static',
+    BASE_DIR / 'assets/static',
 ]
 
+if os.environ.get('RENDER'):
+    MEDIA_ROOT = '/media'
+else:
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

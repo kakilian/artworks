@@ -7,9 +7,9 @@ class ArtworksConfig(AppConfig):
     deafult_auto_field = 'django.db.models.BigAutoField'
     name = 'artworks'
 
-    def ready(self):
-        os.makedirs(os.path.join(
-            settings.MEDIA_ROOT,
-            'artwork_images'
-              ),
-                exist_ok=True)
+#    def ready(self):
+#        os.makedirs(os.path.join(
+#            settings.MEDIA_ROOT,
+#            'artwork_images'
+#              ),
+#                exist_ok=True)

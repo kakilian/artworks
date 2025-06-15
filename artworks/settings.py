@@ -65,7 +65,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'markdown_deux',  # For rendering Markdown in templates using admin
     'cloudinary',  # For image uploads
     'cloudinary_storage',  # For storing images in Cloudinary
     # APPS

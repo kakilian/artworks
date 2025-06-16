@@ -61,6 +61,14 @@ def artist_view(request):
     return render(request, 'artworks/artist_list.html', {'artist': artists})
 
 
+def exhibition_view(request):
+    return render(request, 'artworks/exhibitions.html')
+
+
+def workshop_view(request):
+    return render(request, 'artworks/workshop.html')
+
+
 def custom_404_view(request, _exception):
     return render(request, 'artworks:404.html', status=404)
 

@@ -37,7 +37,7 @@
         <ul class="nav-menu">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'artworks:artworks_list' %}">Artworks</a></li>
-            <li><a href="#">Artists</a></li> <!-- Placeholder -->
+            <li><a href="{% url 'artworks:artist_view' %}">Artists</a></li> <!-- Placeholder -->
             <li class="dropdown" aria-haspopup="true" aria-expanded="false">
                 <button class="dropbtn" aria-controls="events-menu">Coming Up Events</button>
                 <div id="events-menu" class="dropdown-content" role="menu">

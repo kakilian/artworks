@@ -26,15 +26,28 @@
     {% endfor %}
   </div>
 
-  <div class="order-summary">
-    <h2>Order Summary</h2>
-    <p>Subtotal: €{{ subtotal | floatformat:2 }}</p>
-    <p>Taxes: €{{ taxes|floatformat:2 }}</p>
-    <p><strong>Total: €{{ total|floatformat:2 }}</strong></p>
-      <form method="get" action="{% url 'artworks:checkout' %}">
-        <button type="submit" class="btn btn-primary">Checkout</button>
-      </form>
+  <div class="order-summary mt-4 p-4 border rounded" style="max-width: 400px;">
+  <h2 class="mb-3" style="color: #2e7d32;">Order Summary</h2>
+
+  <div style="display: flex; justify-content: space-between;">
+    <span>Subtotal:</span>
+    <span>€{{ subtotal|floatformat:2 }}</span>
   </div>
+  <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+    <span>Taxes:</span>
+    <span>€{{ taxes|floatformat:2 }}</span>
+  </div>
+  <hr>
+  <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; margin-top: 1rem;">
+    <span>Total:</span>
+    <span>€{{ total|floatformat:2 }}</span>
+  </div>
+
+  <form method="get" action="{% url 'artworks:checkout' %}" class="mt-4">
+  <button id="checkout-button" class="btn btn-success btn-lg w-100 mt-4">Check Out</button>
+</div>  </form>
+  </div>
+
 
 {% else %}
   <p>Your cart is empty. <a href="{% url 'artworks:artworks_list' %}">Continue Shopping</a></p>

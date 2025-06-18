@@ -128,12 +128,15 @@ def add_to_cart(request, artwork_id):
     artwork = get_object_or_404(Artwork, id=artwork_id)
     cart, _ = Cart.objects.get_or_create(user=request.user)
     if cart.items.filter(artwork=artwork).exists():
-        messages.info(request, 'This artwork is already in your cart.') # Inform user if item is already in cart
+        messages.info(
+            request,
+            'This artwork is already in your cart.',
+            )  # Inform user if item is already in cart
     else:
-        # Create a new cart item if it doesn't already exist    
+        # Create a new cart item if it doesn't already exist
         cart.items.create(artwork=artwork)
         messages.success(request, f'Added "{artwork.title}" to your cart.')
-        
+
     return redirect('artworks:cart_page')
 
 

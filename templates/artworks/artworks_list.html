@@ -50,9 +50,10 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary me-2">Apply Filters</button>
-            <a href="{% url 'artworks:artworks_list' %}" class="btn btn-secondary">Clear Filters</a>
-
+            <div class="d-flex flex-column gap-2 mt-3">
+                <button type="submit" class="btn btn-success">Apply Filters</button>
+                <a href="{% url 'artworks:artworks_list' %}" class="btn btn-outline-secondary">Clear Filters</a>
+            </div>
         </form>
     </aside>
 
@@ -63,13 +64,17 @@
         <div class="artwork-card">
             <a href="{% url 'artworks:artwork_detail' artwork.id %}">
             {% if artwork.image %}
-            <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="artwork-image">
+                <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="artwork-image">
             {% else %}
             <img src="{% static 'images/placeholder.png' %}" alt="Placeholder image" class="artwork-image">
             {% endif %}
                 <h4>{{ artwork.title }}</h4>
             </a>
-            <p><strong>By:</strong> {{ artwork.artist }}</p>
+            {% if artwork.artist %}
+            <p><strong>By:</strong> {{ artwork.artist.name }}</p>
+            {% else %}
+            <p><strong>By:</strong> Unknown Artist</p>
+            {% endif %}
             <p><strong>€:</strong> {{ artwork.price }}</p>
             <p><strong>Dimensions:</strong> {{ artwork.dimensions }}</p>
             <p><strong>Description:</strong> {{ artwork.description | truncatechars:80 }}</p>

@@ -99,7 +99,6 @@
 [Back to Top](#top)
 
 
-
 ## Custom 404 Page
 
 To enhance user experience, a custom-designed **404 Error Page** was implemented. Rather than displaying a default error, users are shown a creative and on-brand message to keep them engaged:

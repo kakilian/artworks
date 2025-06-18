@@ -1,5 +1,5 @@
 from allauth.account.views import SignupView, LoginView, LogoutView
-from django.urls import path
+from django.urls import path, include
 from .views import (
      artwork_list, artwork_detail, cart_page, update_quantity,
      remove_item, checkout_page, add_to_cart, payment_success,

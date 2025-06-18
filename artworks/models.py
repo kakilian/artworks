@@ -7,8 +7,10 @@ from cloudinary.models import CloudinaryField
 class Artist(models.Model):
     name = models.CharField(max_length=100)
     bio = models.TextField(blank=True)
-    image = models.ImageField(upload_to='artist_images/', blank=True, null=True)
-    
+    image = models.ImageField(
+        upload_to='artist_images/',
+        blank=True, null=True
+        )
 
     def __str__(self):
         return self.name
@@ -37,13 +39,16 @@ class Artwork(models.Model):
 
     is_sold = models.BooleanField(default=False)
 
-
     def __str__(self):
         return self.title
 
 
 class Cart(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='cart')
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        related_name='cart'
+        )
 
     def __str__(self):
         return f"Cart for {self.user.username}"
@@ -59,13 +64,20 @@ class Cart(models.Model):
 
 
 class CartItem(models.Model):
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='items')
+    cart = models.ForeignKey(
+        Cart,
+        on_delete=models.CASCADE,
+        related_name='items'
+        )
     artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['cart', 'artwork'], name='unique_cart_artwork')
+            models.UniqueConstraint(
+                fields=['cart', 'artwork'],
+                name='unique_cart_artwork',
+                )
         ]
 
     def total_price(self):

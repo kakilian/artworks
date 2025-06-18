@@ -124,7 +124,9 @@ To enhance user experience, a custom-designed **404 Error Page** was implemented
 
 ###  Front-End Tools
 
-`Bootstrap 5` • `Font Awesome` • `Google Fonts`
+`Bootstrap 5` • `Font Awesome` • `Google Fonts` • `Cloudinary (for artist + artwork images)`
+
+I was extremely happy that Cloudinary paired perfectly with Render, - streamlining media handling and simplifying development. It ensured secure, efficient image delivery without needing complex storage setups — saving both time and effort, and my pocket.
 
 ###  Back-End Tools
 

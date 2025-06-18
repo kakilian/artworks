@@ -36,6 +36,11 @@ html, body {
     padding: 1em;
 }
 
+main.container {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 
 
 .footer {
@@ -186,7 +191,7 @@ html, body {
     padding: 0.8em 1,5em;
     background: #e6f2e6; /* consistent with header */
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 128, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .hero-container h2 {
@@ -216,6 +221,33 @@ html, body {
     font-size: 3rem;
     line-height: 1;
     margin-right: 0.1em;
+}
+
+/* Buttons for Filter Bar, searching for artwork */
+.btn-primary {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 0.45rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.btn-primary:hover {
+    background-color: #256429;
+}
+
+.btn-secondary {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 0.45rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.2;
 }
 
 /* Footer Social Links */
@@ -515,6 +547,10 @@ button, .add-to-cart, a {
   background: #388e3c;
 }
 
+* {
+  box-shadow: none !important;
+}
+
 /* Responsive tweaks */
 @media (max-width: 650px) {
     .nav-menu {
@@ -531,13 +567,32 @@ button, .add-to-cart, a {
         content: " ▼";
     }    
 
-    .cart-item, .checkout-item {
+    .main-layout {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
-    .cart-item img, .checkout-item img {
-        margin-bottom: 10px;
+    .filters {
+        width: 90%;
+        margin-bottom: 2em;
+    }
+
+    .artwork-section {
+        width: 100%;
+    }
+
+    .artwork-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .artwork-card {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 1rem;
     }
 
     .order-summary {
@@ -553,5 +608,24 @@ button, .add-to-cart, a {
 
     .hero-container p {
         font-size: 1rem;
+    } 
+
+    .cart-item, .checkout-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item img, .checkout-item img {
+        margin-bottom: 10px;
+    }
+
+    .carousel img {
+        max-height: 250px;
+        object-fit: cover;
+    }
+
+    footer {
+        text-align: center;
+        padding: 2rem 1rem;
     }
 }

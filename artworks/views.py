@@ -58,7 +58,7 @@ def artwork_detail(request, pk):
 
 def artist_view(request):
     artists = Artist.objects.all()
-    return render(request, 'artworks/artist_list.html', {'artist': artists})
+    return render(request, 'artworks/artist_list.html', {'artists': artists})
 
 
 def exhibition_view(request):

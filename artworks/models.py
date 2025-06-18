@@ -7,10 +7,7 @@ from cloudinary.models import CloudinaryField
 class Artist(models.Model):
     name = models.CharField(max_length=100)
     bio = models.TextField(blank=True)
-    image = models.ImageField(
-        upload_to='artist_images/',
-        blank=True, null=True
-        )
+    image = CloudinaryField('image', blank=True, null=True)
 
     def __str__(self):
         return self.name

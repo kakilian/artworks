@@ -339,7 +339,7 @@ This application was deployed using **HEROKU**. The live site is available at:
     - Added `WhitenoiseMiddleware` for static file serving
     - Created a `Procfile`:
     ```
-    web: gunicorn main.wsgi
+    web: gunicorn artworks.wsgi:application
     ``` 
     
 4. **Static Files Handling**

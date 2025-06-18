@@ -144,6 +144,7 @@ html, body {
 /* Dropdown Menu */
 .dropdown {
     position: relative;
+    display: inline-block;
 }
 
 .dropdown-content {

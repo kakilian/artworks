@@ -7,8 +7,8 @@ from cloudinary.models import CloudinaryField
 class Artist(models.Model):
     name = models.CharField(max_length=100)
     bio = models.TextField(blank=True)
-
-    is_sold = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='artist_images/', blank=True, null=True)
+    
 
     def __str__(self):
         return self.name
@@ -34,6 +34,9 @@ class Artwork(models.Model):
         blank=True,
         help_text="e.g. 60 x 80 cm")
     description = models.TextField(blank=True)
+
+    is_sold = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.title

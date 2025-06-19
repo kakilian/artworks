@@ -17,7 +17,7 @@ from pathlib import Path
 load_dotenv()  # to take environment variables from a .env file, if it exists
 
 
-DEBUG = True
+DEBUG = 'RENDER' not in os.environ  # Set DEBUG to False in production
 
 
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')

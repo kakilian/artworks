@@ -1,8 +1,18 @@
 <a name="top"></a>
 <p align="center">
-    <img src="documentation/logo.png" alt="Artworks Marketplace Logo" width="200"/>
+    <img src="documentation/images/logo/logo.png" alt="Artworks Marketplace Logo" width="200"/>
 </p>
 
+<p align="center"><em>Curated digital gallery for emerging artists</em></p>
+
+---
+
+**This project is dedicated to Manuel Koch**, whose creative work and vision sparked the idea behind Artworks.  
+Without his inspiration, I may never have started building apps at all.
+
+<p align="center">
+    <img src="documentation/images/artist_images/manuel.koch.jpg" alt="Manuel Koch" width="180"/>
+</p>
 
 # "Discover Unique Art from Independent Artists"
 - Original paintings, fine art prints, and one-of-a-kind pieces curated to inspire and transform your space.
@@ -129,7 +139,7 @@ To enhance user experience, a custom-designed **404 Error Page** was implemented
 <p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 ### Preview:
-![Custom 404 Page](documentation/404-page.png)
+![Custom 404 Page](documentation/images/404/404.working.png)
 
 ##  Technologies Used
 
@@ -193,22 +203,22 @@ This exercise reinforces the importance of integrating social platforms into a b
 
 #### Facebook Profile Page
 <p align="center">
-  <img src="documentation/facebook-cover.png" alt="Facebook Profile page" width="200"/>
+  <img src="documentation/images/facebook/facebook-cover.png" alt="Facebook Profile page" width="200"/>
 </p>
 
 #### Facebook Introduction
 <p align="center">
-  <img src="documentation/facebook-welcome-post.png" alt="Facebook Introduction" width="200"/>
+  <img src="documentation/images/facebook/facebook-welcome-post.png" alt="Facebook Introduction" width="200"/>
 </p>
 
 #### Facebook Support Page
 <p align="center">
-  <img src="documentation/facebook-profile.png" alt="Facebook Support Page" width="200"/>
+  <img src="documentation/images/facebook/facebook-profile.png" alt="Facebook Support Page" width="200"/>
 </p>
 
 #### Facebook Logo "Artworks"
 <p align="center">
-  <img src="documentation/facebook-logo-description.png" alt="Facebook Favicon Logo" width="200"/>
+  <img src="documentation/images/facebook/facebook-logo-description.png" alt="Facebook Favicon Logo" width="200"/>
 </p>
 
 ---
@@ -248,7 +258,7 @@ Although integration with Mailchimp was not completed (due to trial limits), the
 
 
 ### Screenshot Example:
-![Newsletter Signup Form](documentation/newsletter-signup.png)
+![Newsletter Signup Form](documentation/images/)
 
 ## E-commerce Business Model and Marketing Strategy
 
@@ -330,8 +340,8 @@ Screenshots of the board before and during development have been included for as
 
 ### Screenshots
 
-![GitHub Project board Overview](documentation/github-board-overview.png)
-![Task Example](documentation/github-task-card.png)
+![GitHub Project board Overview](documentation/images/kanban/kanban-full.png)
+![Task Example](documentation/images/kanban/kanban-part.png)
 
 ---
 

@@ -34,9 +34,14 @@
 
 ## About the Project
 
-- Artworks Marketplace - Original Art Online is an e-commerce platform created to support and showcase emerging and independent artists, with a particular focus on the Berlin art scene.
+**Artworks Marketplace - Original Art Online** is an e-commerce platform created to support and showcase emerging and independent artists, with a particular focus on the Berlin art scene.
 
-- The platform allows visitors to explore original artworks by medium, artist, or theme, and securely purchase pieces for delivery.
+The platform allows visitors to explore original artworks by medium, artist, or theme, and securely purchase pieces for delivery.
+
+This concept was inspired by a personal connection with a Berlin-based economic journalist and art documentarian who travels globally, capturing exhibitions and connecting art communities across Germany, Switzerland, and the U.S. Through his work — and our shared background in visual media — I saw the potential for a platform that not only sells art, but contextualizes it within story, space, and culture.
+
+Artworks is a mock-up that imagines what that space could be: a curated digital gallery with commerce as a gateway to deeper discovery.
+
 
 ### Features:
 
@@ -58,7 +63,9 @@
     (No Spam, unsubscribe anytime.)
 
 ---
-[Back to Top](#top)
+
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
+
 
 
 ## 404 Page Text
@@ -96,7 +103,7 @@
 
 ---
 
-[Back to Top](#top)
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 
 ## Custom 404 Page
@@ -111,7 +118,7 @@ To enhance user experience, a custom-designed **404 Error Page** was implemented
 - Reflects the tone and theme of the overall website
 
 ---
-[Back to Top](#top)
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 ### Preview:
 ![Custom 404 Page](documentation/404-page.png)
@@ -172,7 +179,7 @@ This exercise reinforces the importance of integrating social platforms into a b
 * **Descriptive post** explaining the logo and what the site offers
 
 ---
-[Back to Top](#top)
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 ### Screenshots
 
@@ -203,7 +210,7 @@ As Facebook frequently removes inactive or mock pages, screenshots were taken to
 
 ---
 
-[Back to Top](#top)
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 
 
@@ -229,7 +236,7 @@ Although integration with Mailchimp was not completed (due to trial limits), the
 - Privacy reassurance (no spam!)
 
 ---
-[Back to Top](#top)
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 
 ### Screenshot Example:
@@ -237,47 +244,59 @@ Although integration with Mailchimp was not completed (due to trial limits), the
 
 ## E-commerce Business Model and Marketing Strategy
 
+This project isn’t just a shop — it’s a concept built around discovery, visual storytelling, and artistic connection. The inspiration comes from a real person in my life: a Berlin-based economic journalist and art documentarian who travels internationally between Frankfurt, Switzerland, and the U.S., capturing exhibitions, connecting artists, and curating rich experiences around the art world.
+
+His work — photographing exhibitions, building networks, and hosting creative gatherings — shaped my understanding of how powerful curated digital spaces can be. Although this site is currently a mock-up, it imagines a future collaboration where his deep access to artists and events feeds into a public-facing online gallery. The potential? To make art accessible while preserving the intimacy and depth of the stories behind it.
+
+The site uses Stripe for secure purchases, and while the current content is placeholder, the platform is designed to be easily populated with real artwork, artist bios, and exhibition news.
+
+---
+
 ### Business Model
 
-Artworks Marketplace operates as a **B2C ( Business-to-Consumer)** platform, connecting individual customers with independent and emerging artists. The core goal is to create a curated online space where users can discover, explore, and purchase original art directly from the creators.
+**Artworks Marketplace** operates as a **B2C (Business-to-Consumer)** platform, connecting individual buyers with emerging and independent artists.
 
-Revenue is modeled around:
+**Revenue is modeled around:**
+- Direct sales of original artworks
+- Future commissions from featured artist sales
+- Optional digital products (e.g. high-res prints, event tickets, recorded talks)
 
-- Direct sales of physical artworks
-- Potential future commission-based earnings from featured artists
-- Optional digital products (e.g. prints, downloads, event tickets) in future iterations
+---
 
 ### Target Audience
 
-- Art enthusiasts looking for unique, original pieces
-- Gift buyers seeking meaningful, creative items
-- Home decorators and interior stylists
-- Supporters of the Berlin independent art scene
+- Art enthusiasts & collectors
+- Gift buyers looking for unique, meaningful pieces
+- Interior decorators and stylists
+- Followers of the Berlin indie art scene
+- Visitors interested in artist-led stories and visual discovery
 
-### Core Marketing Strategies
+---
 
-1. **Social Media Engagement**
-    - A Facebook Business Page was created to showcase featured artworks and build brand awareness.
-    - Future marketing may extend to Instagram for visual content and artist promotion.
+### Marketing Strategy
 
-2. **Email Marketing**
-    - A newsletter signup form allows users to subscribe to updates and offers.
-    - Campaigns may include featured artists, upcoming exhibitions, and new arrivals.
+**1. Social Media Engagement**  
+A Facebook Business Page was created for community building and visual engagement. Instagram and newsletter content are envisioned for future rollout.
 
-3. ****
-    - Implementation of:
-        - `robots.txt` and `sitemap.xml` for search visibility
-        - Descriptive meta tags and rel attributes
-        - Keyword-rich content to improve discoverability
+**2. Email Marketing (Planned)**  
+Newsletter form exists as a front-end mock-up with future integration potential. Could support artist spotlights, interviews, and new releases.
 
-4. **Content Marketing**
-    - Blog-style content (planned) to share artist interviews, studio visits, and art-buying guides.
-    - Helps establish authority and trust while improving SEO.
+**3. SEO Readiness**  
+Includes `robots.txt`, planned `sitemap.xml`, descriptive meta tags, and keyword-driven content to aid visibility and search rankings.
 
-5. **Trust & Transparency**
-    - Use of secure payment processing (Stripe)
-    - Clear returns policy and support contact included in footer (planned)
-    - Custom 404 page enhances user experience and retains users even on broken links
+**4. Content Marketing**  
+Long-form content is envisioned for future phases — including blog-style posts, interviews, and behind-the-scenes studio stories.
+
+**5. Trust & Transparency**  
+Uses Stripe for payment security. Planned additions include a returns policy, artist verification process, and enhanced user feedback.
+
+---
+
+This strategy is grounded in real relationships and industry movement — and serves as a blueprint for how digital commerce can elevate the art world rather than dilute it.
+
+> 🎧 Much like *video killed the radio star*, digital platforms once threatened the soul of art. But this isn’t killing art — it’s transporting it.  
+> With Artworks, anyone, anywhere can explore real exhibitions, connect with artists, and experience visual culture without borders.
+
 
 ## Agile Development and Project Planning
 
@@ -308,7 +327,7 @@ Screenshots of the board before and during development have been included for as
 
 ---
 
-[Back to Top](#top)
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 
 
@@ -399,7 +418,7 @@ Manual walkthroughs were conducted on:
 - Cart session persistence across page refreshes
 
 ---
-[Back to Top](#top)
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 ![Testing](documentation/screenshots/testing)
 
@@ -408,7 +427,7 @@ Manual walkthroughs were conducted on:
 Below is a summary of the core requirements and features implemented in this project:
 
 | Requirement                                                                                 | Status   |
-|---------------------------------------------------------------------------------------------|----------|
+|-----------------------------------------------------------------templates\artworks\artist_list.html----------------------------|----------|
 | ✅ At least 3 original custom models                                                        | ✅ Done   |
 | ✅ Front-end form with CRUD functionality (non-admin)                                       | ✅ Done   |
 | ✅ UI element to delete records from front end                                              | ✅ Done   |
@@ -431,7 +450,7 @@ Below is a summary of the core requirements and features implemented in this pro
 
 ---
 
-[Back to Top](#top)
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 
 ## BUGS
@@ -462,7 +481,7 @@ Below is a summary of the core requirements and features implemented in this pro
 
 
 ---
-[Back to Top](#top)
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 
 
@@ -512,7 +531,7 @@ routes:
         - This taught me how essential it is to fully understand how platforms like Render handle static and media files. Despite success, I found this approach clunky, expensive, and prone to conflicts.
 
 ---
-[Back to Top](#top)
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 
 ## Cloudinary Breakthrough
@@ -528,7 +547,7 @@ routes:
 
 
 ---
-[Back to Top](#top)
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 
 ### Cloudinary Integration(Final Media Setup)
@@ -592,12 +611,10 @@ ALLOWED_HOSTS = ['artworks-4v1w.onrender.com', 'res.cloudinary.com']
 - The journey from ```Heroku -> Render -> Cloudinary``` gave me deep insight into media storage strategies in Django. It wasn't the shortest route, but it got the job done and gave me real-world deployment skills.
 
 ---
-[Back to Top](#top)
-[Back to Top](#top)
-[Back to Top](#top)
-[Back to Top](#top)
-[Back to Top](#top)
-[Back to Top](#top)
-[Back to Top](#top)
-[Back to Top](#top)
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
+
 

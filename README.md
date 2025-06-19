@@ -42,6 +42,14 @@ This concept was inspired by a personal connection with a Berlin-based economic 
 
 Artworks is a mock-up that imagines what that space could be: a curated digital gallery with commerce as a gateway to deeper discovery.
 
+## Disclaimer
+
+This site was developed as part of a Code Institute portfolio project (PP5). It is not an active commercial platform.
+
+Due to unexpected internet traffic and interest in the concept, the site remains publicly accessible as a demonstration of my front-end/back-end skills using Django, Cloudinary, and Render.
+
+All images and artist data (excluding the highlighted artist section) are fictional mockups or creative showcases. No real transactions are possible.
+
 
 ### Features:
 
@@ -622,10 +630,13 @@ ALLOWED_HOSTS = ['artworks-4v1w.onrender.com', 'res.cloudinary.com']
 - The journey from ```Heroku -> Render -> Cloudinary``` gave me deep insight into media storage strategies in Django. It wasn't the shortest route, but it got the job done and gave me real-world deployment skills.
 
 ---
+
+## Connect with Me
+
+💬 I'm always open to feedback, collaboration, or a friendly chat about art + tech.  
+🔗 [Find me on LinkedIn](https://www.linkedin.com/in/katarina-kilian-645242313)
+
 <p align="right"><a href="#top">🔝 Back to Top</a></p>
-<p align="right"><a href="#top">🔝 Back to Top</a></p>
-<p align="right"><a href="#top">🔝 Back to Top</a></p>
-<p align="right"><a href="#top">🔝 Back to Top</a></p>
-<p align="right"><a href="#top">🔝 Back to Top</a></p>
+
 
 

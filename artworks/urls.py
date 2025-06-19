@@ -4,7 +4,7 @@ from .views import (
      artwork_list, artwork_detail, cart_page, update_quantity,
      remove_item, checkout_page, add_to_cart, payment_success,
      payment_cancel, create_checkout_session, artist_view, 
-     exhibition_view, workshop_view,
+     exhibition_view, workshop_view, home,
 )
 # Namespace for the APP - Artworks, this allows us to use that same URLS in other APP stopping conflicts
 app_name = 'artworks'
@@ -12,6 +12,8 @@ app_name = 'artworks'
 
 urlpatterns = [
     path('', artwork_list, name='artworks_list'),         # /artworks/
+    path('home/', home, name='home'),  # /artworks/home/
+    path('artworks/', include('artworks.urls', namespace='artworks')),  # /artworks/artworks/
     path('<int:pk>/', artwork_detail, name='artwork_detail'),  # /artworks/
     path('login/', LoginView.as_view(), name='account_login'),  # /artworks/login/
     path('signup/', SignupView.as_view(), name='account_signup'),

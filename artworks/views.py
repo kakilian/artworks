@@ -14,6 +14,10 @@ from .models import Artwork, Artist, Cart, CartItem
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
+def home(request):
+    return render(request, 'home.html')
+
+
 def artwork_list(request):
     category = request.GET.get('category')
     artist_id = request.GET.get('artist')

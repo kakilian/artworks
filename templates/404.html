@@ -2,20 +2,24 @@
 {% load static %}
 
 {% block content %}
-<div class="text-center my-5">
+<div class="container text-center my-5" style="max-width: 600px;">
 
-    <h1>Oops! Page Not Found (404)</h1>
+    <h1 class="fw-bold">Oops! Page Not Found (404)</h1>
     
-    <p class="multicolor-italic-text fst-italic my-4">
+    <p class="multicolor-italic-text fst-italic my-3">
         Even artists get lost sometimes. Let's get you back on track!
     </p>
 
-    <img src="{% static 'templates/404.html' %}" alt="Paint Brushes" class="img-fluid my-4" style="max-width: 300px;" />
+    <img src="https://res.cloudinary.com/dnpiqghrn/image/upload/v1749806643/brushes_saxnjr.jpg" alt="Paint Brushes" class="img-fluid my-4 rounded shadow-sm" style="max-width: 300px;" />
 
-    <p><a href="{% url 'artworks_list' %}" class="btn btn-primary">Return to Homepage</a></p>
-
+    <p class="mt-4">
+        <a href="{% url 'home' %}" class="btn btn-outline-success">
+        Return to Homepage
+        </a>
+</p>
 </div>
 
+{% block extra_css %}
 <style>
 .multicolor-italic-text {
     font-style: italic;
@@ -28,4 +32,6 @@
     font-size: 1.25rem;
 }
 </style>
+{% endblock %}
+
 {% endblock %}

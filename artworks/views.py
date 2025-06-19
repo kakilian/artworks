@@ -1,4 +1,5 @@
 import stripe
+import logging
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
@@ -69,8 +70,9 @@ def workshop_view(request):
     return render(request, 'artworks/workshop.html')
 
 
-def custom_404_view(request, _exception):
-    return render(request, 'artworks:404.html', status=404)
+def custom_404_view(request, exception):
+    logging.warning(f"404 Error: {exception}")
+    return render(request, '404.html', status=404)
 
 
 @login_required

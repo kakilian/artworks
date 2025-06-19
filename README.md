@@ -333,55 +333,66 @@ Screenshots of the board before and during development have been included for as
 
 ## Deployment
 
-This application was deployed using **HEROKU**. The live site is available at:
+This application is deployed via **Render.com**, with static and media files managed through **Cloudinary**.  
+The live site is available at:
 
-![Live Site URL](https://artworks-a021b8151bbe.herokuapp.com/)
-![Github](https/github.com/kakilian/kilian_berlin.git)
+🔗 [Live Site](https://artworks-4v1w.onrender.com)  
+🔗 [GitHub Repository](https://github.com/kakilian/artworks)  
+🔗 [Cloudinary](https://cloudinary.com)
 
-- Deployment Steps:
+
+---
+
+### Deployment Steps
 
 1. **Set Up GitHub Repository**
-    - Created a new public GitHub repository and pushed the complete project code
-    - Included `README.md`, `.gitignore` and required project structure
+   - Created a public GitHub repository with complete project code
+   - Included `README.md`, `.gitignore`, and structured the app with `artworks/` as the main Django app
 
-2. **Environment & Dependencies**    
-    - Set environment variables in the HEROKU dashboard:
-        - `SECRET KEY`
-        - `DEBUG=False`
-        - `DATABASE_URL`
-        - `STRIPE_PUBLIC_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_WH_SECRET`
-    - Installed necessary packages for deployment:
-    ```bash
-    pip install gunicorn dj-database-url psycopg2 whitenoise
-    ```
+2. **Prepare Environment & Dependencies**
+   - Installed production dependencies:
+     ```bash
+     pip install gunicorn dj-database-url psycopg2 whitenoise cloudinary django-cloudinary-storage
+     ```
+   - Set environment variables in Render:
+     - `SECRET_KEY`
+     - `DEBUG=False`
+     - `DATABASE_URL` (Render PostgreSQL)
+     - Cloudinary:
+       - `CLOUDINARY_CLOUD_NAME`
+       - `CLOUDINARY_API_KEY`
+       - `CLOUDINARY_API_SECRET`
+     - Stripe keys (test)
 
 3. **Project Configuration**
-    - Added `ALLOWED_HOSTS` and `STATIC_ROOT` in `settings.py`
-    - Added `WhitenoiseMiddleware` for static file serving
-    - Created a `Procfile`:
-    ```
-    web: gunicorn artworks.wsgi:application
-    ``` 
-    
-4. **Static Files Handling**
-    - Configured static file paths
-    - Ran 
+   - Updated `settings.py` for production:
+     - `ALLOWED_HOSTS`, `STATIC_ROOT`, `MEDIA_URL`
+     - Cloudinary set as default file storage
+     - `WhitenoiseMiddleware` added for static files
+
+4. **Render Deployment**
+   - Set up a **Web Service** on Render, linked to the GitHub repo
+   - Configured build & start commands:
      ```bash
-     python manage.py collectstatic
-     ```    
-
-5. **Database Migration**
-    - Set up Heroku Postgres add-on
-    - Ran:
-     ```
+     python manage.py collectstatic --noinput
      python manage.py migrate
+     gunicorn artworks.wsgi:application
      ```
 
-6. **Final Checks**
-    - Confirmed:
-        - `DEBUG=False` in production
-        - Sensitive keys are secured via Heroku Config Vars
-        - Stripe test payments functional and visible
+5. **Static and Media Files**
+   - Ran `collectstatic` for static asset handling
+   - Media files uploaded and served from Cloudinary
+
+6. **Database**
+   - Connected to PostgreSQL (Render add-on)
+   - Migrations run post-deploy
+
+7. **Final Production Checks**
+   - `DEBUG=False` confirmed
+   - All sensitive keys stored securely
+   - Stripe test purchases working
+   - Custom 404 tested and functioning
+
 
 ## Testing the Deployment
 

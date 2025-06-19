@@ -120,67 +120,78 @@ main.container {
 
 /* Navigation Menu */
 .nav-menu {
+    list-style: none;
     display: flex;
-    gap: 1.5em;
+    gap: 1rem;
     align-items: center;
-    margin-top: 1em;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    position: relative;
 }
 
 .nav-menu a:focus,
-.nav-menu .dropbtn:focus {
-    font-size: 1rem;       
-    padding: 0.4em 1em;
-    color: #222;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background 0.2s;
-    background: #b2dfdb; /* light green background for focus */
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    outline: 2px solid #4caf50; /* green outline for focus */
-} 
-
+.dropbtn:focus {
+  background: #b2dfdb;
+  color: #222;
+  outline: 2px solid #4caf50;
+  border-radius: 4px;
+}
+ 
 .nav-menu a:hover,
 .nav-menu .dropbtn:hover {
     background: #e0f7fa;
 }
 
-/* Dropdown Menu */
+/* Dropdown Styling Menu */
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
+.dropbtn {
+    background: none;
+    color: #000;
+    cursor: pointer;
+    padding: 0.4em 1em;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
 .dropdown-content {
-    display: none;
     position: absolute;
+    top: 100%;
+    left: 0;
     background: #fff;
-    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0;
+    min-width: 180px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.07);
-    z-index: 100;
+    border-radius: 4px;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.2s ease;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
     opacity: 1;
     visibility: visible;
+    transform: translateY(0);
 }
 
 .dropdown-content a:focus {
-    display: block;
-    padding: 0.5em 1em;
-    color: #222;
-    background: #b2dfdb; /* light green background for focus */;
-    border-radius: 0;
+    background: #b2dfdb;
     outline: none;
 }
 
 .dropdown-content a:hover {
     background: #e0f7fa;
+    color: #000;
 
 }
 

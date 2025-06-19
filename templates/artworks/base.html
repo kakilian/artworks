@@ -39,32 +39,43 @@
     {% endblock %}
 </head>
 
+<!-- JavaScript for Hamburger Menu -->
+<script src="{% static 'js/base.js' %}" defer></script>
+
 <body>
     <!-- Navbar Global -->
-<header class="header d-flex align-items-center">
-    <a href="{% url 'home' %}">
-        <img src="{% static 'images/logo/logo.png' %}" alt="Artworks Logo" style="height: 100px; margin-right: 20px;" />
-    </a>
-    <h1 style="margin:0;">Artworks</h1>
-    <nav role="navigation" aria-label="Main">
-        <ul class="nav-menu">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'artworks:artworks_list' %}">Artworks</a></li>
-            <li><a href="{% url 'artworks:artist_view' %}">Artists</a></li> 
+<header class="header">
+    <div class="top-row">
+        <div class="brand">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/logo/logo.png' %}" alt="Artworks Logo" />
+            </a>
+            <h1>Artworks</h1>
+        </div>
+        <!--Hamburger Button -->
+        <button class="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
+        &#9776;
+        </button>
+    </div>   
+  
 
-            <li class="dropdown">
-                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Coming Up Events ▼</button>
-                <div class="dropdown-content" id="events-menu" role="menu">
-                    <a href="{% url 'artworks:exhibition_view' %}" role="menuitem">Exhibitions</a>
-                    <a href="{% url 'artworks:workshop_view' %}" role="menuitem">Workshops</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
+  <nav role="navigation" aria-label="Main" id="mainNav">
+    <ul class="nav-menu">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'artworks:artworks_list' %}">Artworks</a></li>
+      <li><a href="{% url 'artworks:artist_view' %}">Artists</a></li>
+      <li class="dropdown">
+        <button class="dropbtn">Coming Up Events</button>
+        <div class="dropdown-content">
+          <a href="{% url 'artworks:exhibition_view' %}">Exhibitions</a>
+          <a href="{% url 'artworks:workshop_view' %}">Workshops</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
 </header>
 
-
-
+    <!-- Main Content -->
     <main class="container flex-grow-1 py-4 px-3">
         {% if messages %}
     <div class="message-container" role="alert" aria-live="polite">

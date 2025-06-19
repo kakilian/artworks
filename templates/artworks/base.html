@@ -38,11 +38,12 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'artworks:artworks_list' %}">Artworks</a></li>
             <li><a href="{% url 'artworks:artist_view' %}">Artists</a></li> 
-            <li class="dropdown" aria-haspopup="true" aria-expanded="false">
-                <button class="dropbtn" aria-controls="events-menu">Coming Up Events</button>
-                <div id="events-menu" class="dropdown-content" role="menu">
-                    <a role="menuitem" href="{% url 'artworks:exhibition_view' %}">Exhibitions</a>
-                    <a role="menuitem" href="{% url 'artworks:workshop_view' %}">Workshops</a>
+
+            <li class="dropdown">
+                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Coming Up Events ▼</button>
+                <div class="dropdown-content" id="events-menu" role="menu">
+                    <a href="{% url 'artworks:exhibition_view' %}" role="menuitem">Exhibitions</a>
+                    <a href="{% url 'artworks:workshop_view' %}" role="menuitem">Workshops</a>
                 </div>
             </li>
         </ul>

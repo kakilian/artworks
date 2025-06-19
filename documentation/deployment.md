@@ -89,6 +89,43 @@ This is the deployed production version of the Artworks application:
 
 > This deployment setup ensures that the app remains stable, scalable, and secure using a modern, cloud-based stack.
 
+### 🛠️ Automated Deployment with `.render.yaml`
+
+To automate the deployment process, I included a `.render.yaml` file in the root of the project. This file tells Render how to build and start the app directly from GitHub.
+
+#### File location:
+
+```txt
+/render.yaml
+```
+
+#### Sample configuration:
+
+```yaml
+services:
+  - type: web
+    name: artworks
+    env: python
+    plan: free
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+      python manage.py migrate
+    startCommand: gunicorn artworks.wsgi:application
+    envVars:
+      - key: DEBUG
+        value: false
+      - key: SECRET_KEY
+        sync: false
+      - key: CLOUDINARY_URL
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+```
+
+> *This configuration allows seamless builds and deployments directly from GitHub pushes — no need to trigger manually from the dashboard.*
+
+---
 
 ## 🖼️ Render Deployment Screenshots
 

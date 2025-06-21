@@ -111,6 +111,69 @@ def create_checkout_session(request):
 
 
 @login_required
+def order_history(request):
+    mock_orders = []
+
+    if request.user.is_superuser:
+        mock_orders = [
+            {
+                'title': 'Titanic',
+                'artist': 'Billy Jones',
+                'price': 100.00,
+                'status': 'Shipped',
+                'shipping_id': 'PP56-1234',
+                'date': 'July 7, 2025',
+            },
+            {
+                'title': 'Starry Night',
+                'artist': 'Vincent van Gogh',
+                'price': 250.00,
+                'status': 'Delivered',
+                'shipping_id': 'PP56-5678',
+                'date': 'July 8, 2025',
+            },
+            {
+                'title': 'The Scream',
+                'artist': 'Edvard Munch',
+                'price': 300.00,
+                'status': 'Pending',
+                'shipping_id': 'PP56-9101',
+                'date': 'July 9, 2025',
+            }
+        ]
+
+        return render(request, 'artworks/order_history.html', {'orders': mock_orders})
+
+
+@login_required
+def profile_view(request):
+    is_artist = request.user.is_staff or request.user.is_superuser
+
+    context = {
+        'user': request.user,
+        'is_artist': 'is_artist',
+        'mock_orders': [
+            {
+                'title': 'Kill a Mockingbird',
+                'artist': 'Sarah Kinred',
+                'price': 150.000,
+                'status': 'Deleivered',
+                'shipping_id': 'PP56-1234',
+                'date': 'July 5, 2025',
+            },
+        ] if not is_artist else [],
+        'mock_artworks': [
+            {
+                'title': 'Sunset Print',
+                'price': 400,
+                'status': 'Active Listing',
+            },
+        ] if is_artist else [],
+    }
+    return render(request, 'artworks/profile.html', context)
+
+
+@login_required
 def cart_page(request):
     cart, _ = Cart.objects.get_or_create(user=request.user)
     items = cart.items.select_related('artwork')

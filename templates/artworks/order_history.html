@@ -1,0 +1,27 @@
+{% extends 'artworks/base.html' %}
+
+{% block content %}
+  <div class="container py-4">
+    <h2 class="mb-4">Your Orders</h2>
+
+    {% if orders %}
+      <div class="row">
+        {% for order in orders %}
+          <div class="col-md-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">{{ order.title }}</h5>
+                <p class="card-text"><strong>Artist:</strong> {{ order.artist }}</p>
+                <p class="card-text"><strong>Price:</strong> €{{ order.price }}</p>
+                <p class="card-text"><strong>Status:</strong> {{ order.status }}</p>
+                <p class="card-text"><strong>Shipping ID:</strong> {{ order.shipping_id }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>You haven't ordered anything yet.</p>
+    {% endif %}
+  </div>
+{% endblock %}

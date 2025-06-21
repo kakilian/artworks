@@ -61,8 +61,10 @@
     </div>   
   
 
-  <nav role="navigation" aria-label="Main" id="mainNav">
-    <ul class="nav-menu">
+<nav role="navigation" aria-label="Main" id="mainNav">
+  <ul class="nav-menu">
+    {% if user.is_authenticated %}
+      <li><a href="{% url 'artworks:order_history' %}">My Orders</a></li>
       <li><a href="{% url 'home' %}">Home</a></li>
       <li><a href="{% url 'artworks:artworks_list' %}">Artworks</a></li>
       <li><a href="{% url 'artworks:artist_view' %}">Artists</a></li>
@@ -73,8 +75,15 @@
           <a href="{% url 'artworks:workshop_view' %}">Workshops</a>
         </div>
       </li>
-    </ul>
-  </nav>
+      <li><a href="{% url 'account_logout' %}">Logout</a></li>
+    {% else %}
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'artworks:artworks_list' %}">Artworks</a></li>
+      <li><a href="{% url 'account_login' %}">Login</a></li>
+      <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+    {% endif %}
+  </ul>
+</nav>
 </header>
 
     <!-- Main Content -->

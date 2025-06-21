@@ -43,6 +43,7 @@
 <script src="{% static 'js/base.js' %}" defer></script>
 
 <body>
+  <div class="wrapper d-flex flex-column min-vh-100">
     <!-- Navbar Global -->
 <header class="header">
     <div class="top-row">
@@ -89,8 +90,11 @@
         <!-- Main content goes here -->
         {% endblock %}
     </main>
+    
     <!-- Footer -->
     {% include 'artworks/footer.html' %}
+  </div>
+
 
    
     <!-- Bootstrap JS Bundle -->

@@ -618,6 +618,22 @@ button, .add-to-cart, a {
   text-align: center;
 }
 
+.cancel-overlay h2 {
+  color: #b30000;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  text-shadow: 1px 1px 1px #fff;
+  margin-bottom: 1rem;
+}
+
+.cancel-overlay p {
+  color: #000;
+  font-size: 1.1 rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
 /* Responsive tweaks */
 @media screen and (max-width: 768px) {
     .top-row {
@@ -699,7 +715,6 @@ button, .add-to-cart, a {
 
     /* Hero-Section */
     .cancel-hero {
-    /*background-image: none;*/
     background-color: #f8f8f8; /* fallback tone */
     min-height: auto;
     padding-top: 18vh;
@@ -710,7 +725,6 @@ button, .add-to-cart, a {
     margin-top: 1rem;
     }
 }
-
 
 /* Mobile Styles */
 @media (max-width: 650px) {

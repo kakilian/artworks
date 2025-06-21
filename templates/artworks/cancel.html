@@ -1,7 +1,16 @@
 {% extends 'artworks/base.html' %}
 
 {% block content %}
-  <h2>Payment Cancelled</h2>
-  <p>Your payment was cancelled. You can try again or review your cart.</p>
-  <a href="{% url 'artworks:cart_page' %}">Go to Cart</a>
+<div class="cancel-hero text-center d-flex flex-column align-items-center justify-content-center">
+  <div class="cancel-overlay p-4 shadow">
+    <h2>Payment Cancelled</h2>
+    <p>Your payment was cancelled. You can try again or review your cart.</p>
+
+    <div class="d-flex justify-content-center gap-3 mt-3">
+      <a href="{% url 'artworks:cart_page' %}" class="btn btn-outline-dark">Go to Cart</a>
+      <a href="{% url 'artworks:artworks_list' %}" class="btn btn-success">Return to Artworks</a>
+    </div>
+  </div>
+</div>
 {% endblock %}
+

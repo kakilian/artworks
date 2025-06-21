@@ -586,6 +586,38 @@ button, .add-to-cart, a {
   box-shadow: none !important;
 }
 
+/* Cancel Hero Section */
+.cancel-hero {
+  background-image: url("https://res.cloudinary.com/dnpiqghrn/image/upload/v1750491034/stop_man_kfxtjk.png");
+  background-size: cover;
+  background-position: center top;
+  min-height: 60vh;
+  padding: 12vh 1rem 3rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+.cancel-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.cancel-overlay {
+  max-width: 90%;
+  padding: 1rem;
+  margin-top: 2rem;
+  z-index: 2;
+  position: relative;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
 /* Responsive tweaks */
 @media screen and (max-width: 768px) {
     .top-row {
@@ -627,7 +659,6 @@ button, .add-to-cart, a {
         gap: 1em;
     }
 
-    
     .nav-menu {
         display: none;
         flex-direction: column;
@@ -665,7 +696,22 @@ button, .add-to-cart, a {
     nav {
         width: 100%;
     }
+
+    /* Hero-Section */
+    .cancel-hero {
+    /*background-image: none;*/
+    background-color: #f8f8f8; /* fallback tone */
+    min-height: auto;
+    padding-top: 18vh;
+  }
+
+   .cancel-overlay {
+    font-size: 1rem;
+    margin-top: 1rem;
+    }
 }
+
+
 /* Mobile Styles */
 @media (max-width: 650px) {
     .nav-menu {
@@ -733,6 +779,16 @@ button, .add-to-cart, a {
 
     .cart-item img, .checkout-item img {
         margin-bottom: 10px;
+    }
+
+    .cancel-hero {
+        min-height: 50vh;
+        padding-top: 3vh;
+    }
+
+    .cancel-overlay {
+        padding: 1rem;
+        font-size: 0.9rem;
     }
 
     .carousel img {

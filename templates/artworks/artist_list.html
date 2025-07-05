@@ -11,7 +11,7 @@
         <div class="col">
             <div class="card h-100 shadow-sm">
                 {% if artist.image %}
-                <img src="{{ artist.image.url }}" class="card-img-top" alt="{{ artist.name }}">
+                <img src="{{ artist.image.url|add:'?c_fill,g_face,h_300,w_300'}}" alt="{{ artist.name }}" class="card-img-top rounded shadow-sm">
                 {% else %}
                 <img src="{% static 'images/placeholder.png' %}" class="card-img-top" alt="No Image">
                 {% endif %}

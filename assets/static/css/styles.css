@@ -285,6 +285,73 @@ main.container {
     line-height: 1.2;
 }
 
+/*Newsletter FormStyles */
+.newsletter-form-wrapper {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.newsletter-form-wrapper h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+}
+
+.newsletter-form-wrapper .form-group {
+    margin-bottom: 1rem;
+}
+
+.newsletter-form-wrapper input[type="email"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.newsletter-form-wrapper button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form-wrapper button:hover {
+    background-color: #555;
+}
+
+.thank-you-msg {
+    max-width: 600px;
+    margin: 3rem auto;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 16px;
+    background-color: #e0f7ec;
+    color: #2f6655;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.thank-you-msg h2 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.thank-you-msg a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #2f6655;
+    text-decoration: underline;
+}
+
+
 /* Footer Social Links */
 .site-footer {
     background-color: #e6f2e6; /* consistent with header */
@@ -731,6 +798,10 @@ button, .add-to-cart, a {
     font-size: 1rem;
     margin-top: 1rem;
     }
+    
+    .site-footer .row > div {
+    text-align: center;
+  }
 }
 
 /* Mobile Styles */

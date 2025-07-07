@@ -772,6 +772,19 @@ ALLOWED_HOSTS = ['artworks-4v1w.onrender.com', 'res.cloudinary.com']
 - The journey from ```Heroku -> Render -> Cloudinary``` gave me deep insight into media storage strategies in Django. It wasn't the shortest route, but it got the job done and gave me real-world deployment skills.
 
 ---
+---
+
+## Personal Reflection
+
+Last year, after the sudden loss of a dear friend, finding my way back to coding was one of the hardest things I’ve had to do. The road was full of personal hurdles. Although my passion for creating never left me, my ability to focus and grow my skills was deeply affected.
+
+This project represents more than just an assignment — it’s the result of a long, frustrating period where I had to push through exhaustion, grief, full-time work, and being a mum. I poured my heart into this app, often working through the night, running on two hours of sleep, and still showing up again the next day. What you see here is built from love, sweat, and tears.
+
+I had no mentor during this project. Everything you see has been created through pure grit, late nights, and what I’ve learned through past hackathons. I did reach out to a former teacher, Matt Rugen, who reminded me of the Atomic Django structure — a best practice I had initially overlooked. While I deeply value its importance, I realized, with only seven days left before submission, that it was too late to restructure everything without compromising stability. That said, I did apply Atomic structure in creating a separate app for the newsletter feature, and it instantly felt smoother and more maintainable.
+
+If I could go back and refactor the whole project to be fully Atomic, I would — and I still might. But for now, I’ve kept the main logic inside the `artworks` app for practicality and time reasons.
+
+Thank you for taking the time to walk through this journey with me — not just the code, but everything it took to get here.
 
 
 ## Connect with Me

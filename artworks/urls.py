@@ -12,25 +12,53 @@ app_name = 'artworks'
 
 
 urlpatterns = [
-    path('', artwork_list, name='artworks_list'),         # /artworks/
-    path('home/', home, name='home'),  # /artworks/home/
-    path('about/', home, name='about'),  # /artworks/about/
-    path('<int:pk>/', artwork_detail, name='artwork_detail'),  # /artworks/
-    path('login/', LoginView.as_view(), name='login'),  # /artworks/login/
+    path('', artwork_list, name='artworks_list'),
+    path('home/', home, name='home'),
+    path('about/', home, name='about'),
+    path('<int:pk>/', artwork_detail, name='artwork_detail'),
+    path('login/', LoginView.as_view(), name='login'),
     path('signup/', SignupView.as_view(), name='account_signup'),
     path('profile/', profile_view, name='profile'),
     path('artists/', artist_view, name='artist_view'),
-    path('logout/', LogoutView.as_view(), name='account_logout'),  # /artworks/logout/
+    path('logout/', LogoutView.as_view(), name='account_logout'),
     path('orders/', order_history, name='order_history'),
-    path('cart/', cart_page, name='cart_page'),  # /artworks/cart/
-    path('cart/update/<int:item_id>/', update_quantity, name='update_quantity'),  # /artworks/cart/update/
-    path('cart/remove/<int:item_id>/', remove_item, name='remove_item'),  # /artworks/cart/remove/
-    path('checkout/', checkout_page, name='checkout'),  # /artworks/checkout/
-    path('payment/success/', payment_success, name='payment_success'),  # /artworks/payment/success/
-    path('payment/cancel/', payment_cancel, name='payment_cancel'),  # /artworks/payment/cancel/
-    path('create-checkout-session/', create_checkout_session, name='create_checkout_session'),  # /artworks/create-checkout-session/
-    path('add_to_cart/<int:artwork_id>/', add_to_cart, name='add_to_cart'),  # /artworks/add_to_cart/
-    path('exhibition/', exhibition_view, name='exhibition_view'),  # /artworks/exhibition/
+    path('cart/', cart_page, name='cart_page'),
+    path(
+        'cart/update/<int:item_id>/',
+        update_quantity,
+        name='update_quantity',
+    ),
+    path(
+        'cart/remove/<int:item_id>/',
+        remove_item,
+        name='remove_item',
+    ),
+    path('checkout/', checkout_page, name='checkout'),
+    path(
+        'payment/success/',
+        payment_success,
+        name='payment_success',
+    ),
+    path(
+        'payment/cancel/',
+        payment_cancel,
+        name='payment_cancel',
+    ),
+    path(
+        'create-checkout-session/',
+        create_checkout_session,
+        name='create_checkout_session',
+    ),
+    path(
+        'add_to_cart/<int:artwork_id>/',
+        add_to_cart,
+        name='add_to_cart',
+    ),
+    path(
+        'exhibition/',
+        exhibition_view,
+        name='exhibition_view',
+    ),
     path('workshop/', workshop_view, name='workshop_view'),
     path('thank-you/', thank_you, name='thank_you'),
     path('newsletter/', include('newsletter.urls')),

@@ -10,7 +10,7 @@ The final site adheres closely to the original wireframes, with some visual and 
 
 | Wireframe Section  | Final Site Status       | Notes                                               |
 |--------------------|-------------------------|-----------------------------------------------------|
-| Hero Concept       | Not yet implemented     | Kept for future enhancement                         |
+| Hero Concept       | Not yet implemented     | Kept for potential future enhancement                         |
 | Landing Page       | Fully implemented       | Added clickable featured images for better UX       |
 | Artist Detail      | Fully implemented       | Adjusted image placement and bio spacing            |
 | Artwork Detail     | Fully implemented       | Shows artwork info, price, and Add to Cart button   |

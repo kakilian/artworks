@@ -23,5 +23,11 @@ While the core functionality is solid and deploy-ready, the following features w
 * **Accessibility Audit and Keyboard Navigation:**
   Improved ARIA support and full keyboard navigation to meet higher accessibility standards.
 
+* **Homepage Hero Section:**
+A full-width hero banner was designed in early wireframes but not implemented. It’s planned as a dramatic visual entry point to introduce the site's mission and style.
+
+* **Artist Carousel:**
+A planned homepage carousel was partially coded but not yet functional. It’s intended to spotlight newcomers or feature selected artists, with future enhancements like swipe support, admin controls, and homepage links. 
+
 These features represent potential next steps for expanding the project into a more scalable, user-focused platform.
 

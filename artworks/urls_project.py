@@ -3,6 +3,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from newsletter import urls as newsletter_urls
+
 
 
 urlpatterns = [
@@ -19,6 +21,7 @@ urlpatterns = [
             namespace='artworks',
         ),
     ),
+    path('newsletter/', include('newsletter.urls', namespace='newsletter')),    
 ]
 
 

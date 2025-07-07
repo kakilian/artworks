@@ -1,33 +1,59 @@
-{% load static%}
-
+{% load static %}
 {% now "Y" as year %}
+
 <footer class="site-footer">
-  <nav class="social-links" aria-label="Social Media">
-    <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
-      <img src="{% static 'icons/linkedin-app-icon.svg' %}" alt="LinkedIn" class="social-icon">
-    </a>
-    <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
-      <img src="{% static 'icons/youtube-color-icon.svg' %}" alt="YouTube" class="social-icon">
-    </a>
-    <a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
-      <img src="{% static 'icons/twitter-app-icon.svg' %}" alt="Twitter" class="social-icon">
-    </a>
-    <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-      <img src="{% static 'icons/ig-instagram-icon.svg' %}" alt="Instagram" class="social-icon">
-    </a>
-    <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
-      <img src="{% static 'icons/facebook-round-color-icon.svg' %}" alt="Facebook" class="social-icon">
-    </a>
-  </nav>
-  <p class="footer-copy">&copy; {{ year }} ARTWORKS</p>
+  <div class="container my-5">
+    <div class="row">
 
-<p class="small text-muted mb-1 text-center">
-  This site is a student project built for educational purposes only.<br>
-  Public access remains open due to high demo traffic and portfolio interest.
-</p>
+        <!-- Left: Social Links -->
+      <div class="col-md-6 d-flex flex-column align-items-center justify-content-center mb-4 mb-md-0">
+        <nav class="social-links mb-3" aria-label="Social Media">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="{% static 'icons/linkedin-app-icon.svg' %}" alt="LinkedIn" class="social-icon">
+          </a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+            <img src="{% static 'icons/youtube-color-icon.svg' %}" alt="YouTube" class="social-icon">
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
+            <img src="{% static 'icons/twitter-app-icon.svg' %}" alt="Twitter" class="social-icon">
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="{% static 'icons/ig-instagram-icon.svg' %}" alt="Instagram" class="social-icon">
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="{% static 'icons/facebook-round-color-icon.svg' %}" alt="Facebook" class="social-icon">
+          </a>
+        </nav>
+      </div>    
 
-<p class="small text-muted text-center">
-  💬 Let's connect on <a href="https://www.linkedin.com/in/katarina-kilian-645242313/" target="_blank" rel="noopener">LinkedIn</a>!
-</p>
+
+     <!-- Right: Newsletter + Image -->
+      <div class="col-md-6">
+        {% if not user.is_authenticated and not request.session.newsletter_subscribed %}
+        <div class="newsletter-form-wrapper p-4 bg-light rounded shadow-sm text-center">
+          <h3 class="mb-3">Stay Inspired</h3>
+          {% include 'newsletter/newsletter_form.html' %}
+
+          <!-- Optional visual below the form -->
+          <div class="mt-4">
+            <img src="{% static 'images/newsletter_art.jpg' %}" class="img-fluid rounded" alt="Newsletter visual">
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+    <!-- Bottom Footer Copy -->
+    <div class="text-center mt-5">
+      <p class="footer-copy">&copy; {{ year }} ARTWORKS</p>
+      <p class="small text-muted mb-1">
+        This site is a student project built for educational purposes only.<br>
+        Public access remains open due to high demo traffic and portfolio interest.
+      </p>
+      <p class="small text-muted">
+        💬 Let's connect on <a href="https://www.linkedin.com/in/katarina-kilian-645242313/" target="_blank" rel="noopener">LinkedIn</a>!
+      </p>
+    </div>
+
+  </div>
 </footer>
 

@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     # APPS
     'artworks.apps.ArtworksConfig',  # The main app for artworks/ For Render
     'assets',
+    'newsletter',
 ]
 
 

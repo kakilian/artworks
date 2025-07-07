@@ -1,0 +1,23 @@
+{% extends 'artworks/base.html' %}
+
+{% block content %}
+<h3>Subscribe to Our Newsletter</h3>
+
+<form method="post" action="">
+    {% csrf_token %}
+    
+    {{ form.non_field_errors }}
+
+    <div>
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {% if form.email.errors %}
+            <div class="form-error">
+                {{ form.email.errors }}
+            </div>
+        {% endif %}
+    </div>
+    
+    <button type="submit">Subscribe</button>
+</form>
+{% endblock%}

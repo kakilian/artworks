@@ -61,6 +61,34 @@ Due to unexpected internet traffic and interest in the concept, the site remains
 
 All images and artist data (excluding the highlighted artist section) are fictional mockups or creative showcases. No real transactions are possible.
 
+## Screenshots
+
+| Home Page | Artists | Artworks Listing | Login |
+|-----------|---------|------------------|-------|
+| <img src="documentation/images/live_screen_shots/live-landing.png" width="200"> | <img src="documentation/images/live_screen_shots/live-artists.png" width="200"> | <img src="documentation/images/live_screen_shots/live-artworks.png" width="200"> | <img src="documentation/images/live_screen_shots/live-login.png" width="200"> |
+
+| Medium Screen | Custom 404 Page | Cart | Checkout |
+|---------------|------------------|------|----------|
+| <img src="documentation/images/live_screen_shots/live-working-medium.png" width="200"> | <img src="documentation/images/live_screen_shots/live-thispage-404.png" width="200"> | <img src="documentation/images/live_screen_shots/live-cart.png" width="200"> | <img src="documentation/images/live_screen_shots/live-checkout.png" width="200"> |
+
+---
+
+### Additional Screenshots
+
+| Upcoming Events | Mock Page | Newsletter Signup | Signed Out |
+|-----------------|-----------|-------------------|------------|
+| <img src="documentation/images/live_screen_shots/live-mock-upcoming-events.png" width="200"> | <img src="documentation/images/live_screen_shots/live-mock.png" width="200"> | <img src="documentation/images/live_screen_shots/live-newsletter-signup.png" width="200"> | <img src="documentation/images/live_screen_shots/live-signed-out.png" width="200"> |
+
+| Signup Success | Footer Signup | Stripe | Success |
+|----------------|----------------|--------|---------|
+| <img src="documentation/images/live_screen_shots/live-signup-success.png" width="200"> | <img src="documentation/images/live_screen_shots/site-footer-after.png" width="200"> | <img src="documentation/images/live_screen_shots/live-stripe.png" width="200"> | <img src="documentation/images/live_screen_shots/live-success.png" width="200"> |
+
+| Transaction Stopped | Footer After | Newsletter Page | Newsletter Component |
+|---------------------|---------------|------------------|-----------------------|
+| <img src="documentation/images/live_screen_shots/live-transaction-stopped.png" width="200"> | <img src="documentation/images/live_screen_shots/site-footer-after.png" width="200"> | <img src="documentation/images/live_screen_shots/site-newsletter-signup-page.png" width="200"> | <img src="documentation/images/live_screen_shots/site-newsletter-signup.png" width="200"> |
+
+
+
 
 ### Features:
 
@@ -143,40 +171,34 @@ To enhance user experience, a custom-designed **404 Error Page** was implemented
 
 ### Preview:
 ![Custom 404 Page]<p align="center">
-  <img src="documentation/images/404/404.working.png" alt="Custom 404 Page" width="60%">
+  <img src="documentation/images/live_screen_shots/live-thispage-404.png" alt="Custom 404 Page" width="60%">
 </p>
 
-##  Technologies Used
+## Technologies Used
 
-###  Languages & Frameworks
-
+### Languages & Frameworks
 `HTML5` • `CSS3` • `JavaScript` • `Python 3` • `Django`
 
-###  Front-End Tools
+### Front-End Tools
+`Bootstrap 5` • `Font Awesome` • `Google Fonts` • `Cloudinary` (for artist + artwork images)
 
-`Bootstrap 5` • `Font Awesome` • `Google Fonts` • `Cloudinary (for artist + artwork images)`
+> I was extremely happy that Cloudinary paired perfectly with Render — streamlining media handling and simplifying development. It ensured secure, efficient image delivery without needing complex storage setups — saving both time and effort, and my pocket.
 
-I was extremely happy that Cloudinary paired perfectly with Render, - streamlining media handling and simplifying development. It ensured secure, efficient image delivery without needing complex storage setups — saving both time and effort, and my pocket.
+### Back-End Tools
+`Django Models` • `PostgreSQL`
 
-###  Back-End Tools
+### E-Commerce & Marketing
+`Stripe` • `Mailchimp` or `Brevo` • `Facebook Page`
 
-`Django Models` • `PostgreSQL` 
-
-###  E-Commerce & Marketing
-
-`Stripe` • `Mailchimp (or Brevo)` • `Facebook Page`
-
-###  SEO & UX Features
-
+### SEO & UX Features
 `robots.txt` • `sitemap.xml` • `Meta Tags` • `Custom 404 Page`
 
-###  Development & Deployment
+### Development & Deployment
+`VS Code` • `Git` • `GitHub` • `GitHub Projects` • `Render` • `Gunicorn` • `Whitenoise` • `Cloudinary`
 
-`VS Code` • `Git` • `GitHub` • `GitHub Projects` • `Render` • `Gunicorn` • `Whitenoise` `Cloudinary`
+### Additional Tools
+`Microsoft Word` (for wireframes) • `Google Lighthouse` • `W3C Validators`
 
-###  Additional Tools
-
-`Microsoft Word (for wireframes)` • `Google Lighthouse` • `W3C Validators`
 
 
 ## Facebook Business Page
@@ -206,17 +228,12 @@ This exercise reinforces the importance of integrating social platforms into a b
 
 ### Screenshots
 
-#### Facebook Cover + Welcome Post
-<p align="center">
-  <img src="documentation/images/facebook/facebook-cover.png" alt="Facebook Cover" width="48%" style="margin-right: 2%;">
-  <img src="documentation/images/facebook/facebook-welcome-post.png" alt="Facebook Welcome Post" width="48%">
-</p>
+### Facebook Setup Preview
 
-#### Profile Page + Logo Description
-<p align="center">
-  <img src="documentation/images/facebook/facebook-profile.png" alt="Facebook Profile Page" width="48%" style="margin-right: 2%;">
-  <img src="documentation/images/facebook/facebook-logo-description.png" alt="Facebook Logo Description" width="48%">
-</p>
+| Cover | Welcome Post | Profile | Logo Description |
+|-------|--------------|---------|------------------|
+| <img src="documentation/images/facebook/facebook-cover.png" width="200"> | <img src="documentation/images/facebook/facebook-welcome-post.png" width="200"> | <img src="documentation/images/facebook/facebook-profile.png" width="200"> | <img src="documentation/images/facebook/facebook-logo-description.png" width="200"> |
+
 
 ---
 ### Note for Assessors
@@ -255,13 +272,14 @@ While the initial integration with Mailchimp was paused due to trial limits, the
 
 ### Visual Example
 
-![Newsletter Signup Form](documentation/images/newsletter_signup.png)
+![Newsletter Signup Form](documentation/images/live_screen_shots/site-newsletter-signup.png)
+![Newsletter Signup Success](documentation/images/live_screen_shots/site-newsletter-signup-page.png)
 
 ## Responsive Design & Accessibility
 
 The "Payment Cancelled" page was a focus for both visual clarity and user experience across devices.
 
-![Flipped Stop Man]
+![Flipped Stop Man](documentation/images/live_screen_shots/live-transaction-stopped.png)
 <p align="center">
   <img src="https://res.cloudinary.com/dnpiqghrn/image/upload/v1750491034/stop_man_kfxtjk.png" alt="Flipped Stop Man" width="250">
 </p>
@@ -480,7 +498,7 @@ Manual walkthroughs were conducted on:
 Below is a summary of the core requirements and features implemented in this project:
 
 | Requirement                                                                                 | Status   |
-|-----------------------------------------------------------------templates\artworks\artist_list.html----------------------------|----------|
+|---------------------------------------------------------------------------------------------|----------|
 | ✅ At least 3 original custom models                                                        | ✅ Done   |
 | ✅ Front-end form with CRUD functionality (non-admin)                                       | ✅ Done   |
 | ✅ UI element to delete records from front end                                              | ✅ Done   |
@@ -490,14 +508,16 @@ Below is a summary of the core requirements and features implemented in this pro
 | ✅ Descriptive `<meta>` tags used                                                           | ✅ Done   |
 | ✅ At least one `<a>` link uses `rel` attribute                                             | ✅ Done   |
 | ✅ Custom 404 error page implemented                                                        | ✅ Done   |
-| ✅ Facebook Business Page (real or mocked with screenshots)                                | ✅ Done   |
-| ✅ Newsletter signup form (real or simulated with future integration)                      |    |
-| ✅ E-commerce business model & marketing strategy described in README                      | ✅ Done   |
+| ✅ Facebook Business Page (real or mocked with screenshots)                                 | ✅ Done   |
+| ✅ Newsletter signup form (real or simulated with future integration)                       | ✅ Done   |
+| ✅ E-commerce business model & marketing strategy described in README                       | ✅ Done   |
 | ✅ `DEBUG=False` in production                                                              | ✅ Done   |
 | ✅ User registration, login, and logout functionality                                       | ✅ Done   |
 | ✅ Fully functional e-commerce purchase flow using Stripe                                   | ✅ Done   |
 | ✅ Detailed testing beyond validation tools                                                 | ✅ Done   |
 | ✅ Public GitHub Project board linked                                                       | ✅ Done   |
+
+
 
 > 📌 Supporting screenshots, wireframes, and design documentation are located in the `documentation/` folder.
 

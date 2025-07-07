@@ -364,9 +364,8 @@ main.container {
 }
 
 .social-links a {
-    display: inline-block;
-    margin: 0 0.5rem;
-    transition: transform 0.2s ease;
+  display: inline-block;
+  transition: transform 0.2s ease;
 }
 
 .social-links a:hover,
@@ -375,15 +374,31 @@ main.container {
 }
 
 .social-icon {
-    width: 32px;
-    height: 32px;
-    vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  background-color: #333; /* or #222 */
+  border-radius: 50%;
+  display: inline-block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-links a:hover .social-icon,
+.social-links a:focus .social-icon {
+  opacity: 0.85;
+  transform: scale(1.1);
 }
 
 .footer-copy {
     font-size: 0.9rem;
     margin: 0;
     color: #666; /* consistent with footer */
+}
+
+footer a {
+    color: #000; 
+    font-weight: 600;
+    text-decoration: underline;
 }
 
 /* -- Auth Form Styles --*/

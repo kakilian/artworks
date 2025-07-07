@@ -258,3 +258,8 @@ def payment_cancel(request):
 
 def my_view(request):
     messages.success(request, "You did the thing successfully!")
+
+
+def thank_you(request):
+    return render(request, 'thank_you.html')
+

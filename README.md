@@ -507,6 +507,39 @@ The site scored highly across all key metrics:
 
 ---
 
+### W3C HTML Validation
+
+The homepage was tested using the [W3C Markup Validation Service](https://validator.w3.org/) and returned no critical HTML errors.
+
+Minor "info" messages were related to trailing slashes on void elements, which do not affect rendering or functionality.
+
+![HTML Validator - Homepage](documentation/images/testing/validator.w3.png)
+
+---
+
+### W3C CSS Validation
+
+The main stylesheet (`styles.css`) was tested using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and returned **3 minor errors** and **vendor-specific warnings**.
+
+**Errors:**
+1. `padding` used `1,5em` — should be `1.5em`
+2. `word-spacing` had an invalid comma
+3. `font-size` used incorrect spacing (`1.1 rem` should be `1.1rem`)
+
+These were due to regional decimal separators (`,` vs `.`) or extra spacing — and can be quickly corrected.
+
+**Warnings:**  
+434 vendor-specific warnings from Bootstrap (e.g. `-webkit-appearance`, `::placeholder`, etc.)  
+These are common and expected when using Bootstrap and do not affect CSS validity.
+
+![CSS Validator - styles.css](documentation/images/testing/testing_css.png)
+
+Initial Errors:
+
+Fix Applied – Padding, Word-Spacing, Font Size:
+
+<p align="center"> <img src="documentation/images/testing/css-bug-fix.png" width="30%"> <img src="documentation/images/testing/css-bug-fix-two.png" width="30%"> <img src="documentation/images/testing/css-bug-fix-three.png" width="30%"> </p>
+
 ## Final Project Feature Checklist
 
 Below is a summary of the core requirements and features implemented in this project:

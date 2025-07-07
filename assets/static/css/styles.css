@@ -223,7 +223,7 @@ main.container {
 .hero-container {
     text-align: center;
     margin: 1.2em 0;
-    padding: 0.8em 1,5em;
+    padding: 0.8em 1.5em;
     background: #e6f2e6; /* consistent with header */
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -248,7 +248,7 @@ main.container {
     line-height: 1.6;
     text-align:justify;
     hyphens: auto;
-    word-spacing: 0,02em;
+    word-spacing: 0.02em;
 }
 
 .artwork-description p:first-of-type::first-letter {
@@ -724,7 +724,7 @@ button, .add-to-cart, a {
 
 .cancel-overlay p {
   color: #000;
-  font-size: 1.1 rem;
+  font-size: 1.1rem;
   font-weight: bold;
   line-height: 1.5;
 }

@@ -1,8 +1,10 @@
-import os
 from django import forms
-from django.conf import settings
 from django.contrib import admin
 from django.utils.html import format_html
+
+from django.contrib.sites.models import Site
+from allauth.socialaccount.models import SocialAccount, SocialApp, SocialToken
+
 from .models import Artwork, Artist, Cart, CartItem
 
 
@@ -10,26 +12,6 @@ class ArtworkAdminForm(forms.ModelForm):
     class Meta:
         model = Artwork
         fields = '__all__'
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        # Builds choices from MEDIA_ROOT/artwork_images
-        #folder = os.path.join(settings.MEDIA_ROOT, 'artwork_images')
-        #choices = [('', '— Select an existing file —')]
-        #if os.path.isdir(folder):
-        #    for fname in sorted(os.listdir(folder)):
-        #        full = os.path.join(folder, fname)
-        #        if os.path.isfile(full):
-                    # store the relative path so the ImageField can resolve it
-        #            choices.append((f'artwork_images/{fname}', fname))
-
-        # Replace the image field with our ChoiceField
-        #self.fields['image'] = forms.ChoiceField(
-        #    label="Select existing image",
-        #    choices=choices,
-        #    required=False,       # allowed to upload new images
-        #    help_text="Or leave blank and use the Upload button below to add a new file."
-        #)
 
 
 @admin.register(Artist)
@@ -45,6 +27,7 @@ class ArtworkAdmin(admin.ModelAdmin):
     list_filter = ('category', 'artist')
     search_fields = ('title', 'description', 'artist__name')
     readonly_fields = ('image_preview',)
+
     fieldsets = (
         (None, {
             'fields': (
@@ -69,3 +52,17 @@ class CartAdmin(admin.ModelAdmin):
 @admin.register(CartItem)
 class CartItemAdmin(admin.ModelAdmin):
     list_display = ('cart', 'artwork')
+
+
+# Hide unused admin models if they exist
+try:
+    admin.site.unregister(Site)
+except admin.sites.NotRegistered:
+    pass
+
+try:
+    admin.site.unregister(SocialAccount)
+    admin.site.unregister(SocialApp)
+    admin.site.unregister(SocialToken)
+except admin.sites.NotRegistered:
+    pass

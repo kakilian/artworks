@@ -360,7 +360,10 @@ main.container {
 }
 
 .social-links {
-    margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
 }
 
 .social-links a {
@@ -387,6 +390,18 @@ main.container {
 .social-links a:focus .social-icon {
   opacity: 0.85;
   transform: scale(1.1);
+}
+
+.newsletter-art-image {
+  max-width: 180px;      
+  max-height: 320px;     
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  object-fit: contain;   
 }
 
 .footer-copy {

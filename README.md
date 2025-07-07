@@ -19,8 +19,12 @@ Without his inspiration, I may never have started building apps at all.
 
 ## Table of Contents
 - [About the Project](#about-the-project)
+- [Disclaimer](#disclaimer)
+- [Screenshots](#screenshots)
 - [Features](#features)
 - [Shop Page Intro Text](#shop-page-intro-text)
+- [Newsletter Signup Text](#newsletter-signup-text)
+- [404 Page Text](#404-page-text)
 - [Wireframes](#wireframes)
 - [Custom 404 Page](#custom-404-page)
 - [Technologies Used](#technologies-used)
@@ -31,16 +35,16 @@ Without his inspiration, I may never have started building apps at all.
 - [Agile Development and Project Planning](#agile-development-and-project-planning)
 - [Deployment](#deployment)
 - [Testing the Deployment](#testing-the-deployment)
+- [Testing](#testing)
 - [Final Project Feature Checklist](#final-project-feature-checklist)
-* [Bugs](#bugs)
-
-  * [Media File Bug Fix and Cloud Setup (Render.com)](#media-file-bug-fix-and-cloud-setup-rendercom)
-  * [Steps Taken to Fix (Render)](#steps-taken-to-fix-render)
-  * [Cloudinary Breakthrough](#cloudinary-breakthrough)
-  * [Why Cloudinary?](#why-cloudinary)
-  * [Cloudinary Integration (Final Media Setup)](#cloudinary-integration-final-media-setup)
-  * [Upload Methods + Test Results](#upload-methods--test-results)
-  * [Outcome](#outcome)
+- [Bugs](#bugs)
+  - [Media File Bug Fix and Cloud Setup (Render.com)](#media-file-bug-fix-and-cloud-setup-rendercom)
+  - [Steps Taken to Fix (Render)](#steps-taken-to-fix-render)
+  - [Cloudinary Breakthrough](#cloudinary-breakthrough)
+  - [Cloudinary Integration (Final Media Setup)](#cloudinary-integrationfinal-media-setup)
+  - [Upload Methods + Test Results](#upload-methods--test-results)
+  - [Outcome](#outcome)
+- [Connect with Me](#connect-with-me)
 
 
 ## About the Project

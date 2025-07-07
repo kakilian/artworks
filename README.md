@@ -489,9 +489,23 @@ Manual walkthroughs were conducted on:
 - Cart session persistence across page refreshes
 
 ---
+
 <p align="right"><a href="#top">🔝 Back to Top</a></p>
 
-![Testing](documentation/images/)
+## Testing
+
+### 1. Lighthouse Report
+
+The homepage was tested using [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) in mobile mode.  
+The site scored highly across all key metrics:
+
+| Performance | Accessibility | Best Practices | SEO |
+|-------------|---------------|----------------|-----|
+| 92          | 98            | 100            | 100 |
+
+![Lighthouse Report - Homepage](documentation/images/testing/lighthouse-homepage.png)
+
+---
 
 ## Final Project Feature Checklist
 

@@ -19,21 +19,21 @@ This project includes a robust newsletter signup feature, built with Django and 
 ### 1. Brevo Dashboard (Home)
 Overview of the Brevo dashboard where all email marketing features are managed.
 
-![Brevo Contacts](documentation/images/newsletter/brevo-contacts.png)
+![Brevo Contacts](images/newsletter/brevo-contacts.png)
 
 ---
 
 ### 2. Initial Setup & API Keys
 Shows the settings/API page, where you connect your Django app for real mailing list integration.
 
-![Brevo Setup Screenshot](documentation/images/newsletter/brevo-setting-up.png)
+![Brevo Setup Screenshot](images/newsletter/brevo-setting-up.png)
 
 ---
 
 ### 3. Contacts Management
 How new subscribers are managed as contacts, ready for newsletters and updates.
 
-![Brevo Contacts Screenshot](documentation/images/newsletter/brevo-contacts.png)
+![Brevo Contacts Screenshot](images/newsletter/brevo-contacts.png)
 
 ---
 
@@ -59,17 +59,17 @@ To swap in another email marketing tool:
 **1. Newsletter signup form in the footer:**  
 Users can enter their email on any page to join the mailing list.
 
-![Newsletter signup form](documentation/images/newsletter/newsletter-signup-form.png)
+![Newsletter signup form](images/newsletter/site-newsletter-signup.png)
 
 **2. Confirmation message after successful signup:**  
 Users instantly see feedback — “Thanks for subscribing!” — and the form disappears.
 
-![Newsletter confirmation](documentation/images/newsletter/newsletter-confirmation.png)
+![Newsletter confirmation](images/newsletter/site-newsletter-signup-page.png)
 
 **3. Footer after signup (form hidden):**  
 Once subscribed, the newsletter form is hidden from the footer for the rest of the session, creating a distraction-free experience.
 
-![Footer after signup](documentation/images/newsletter/newsletter-footer-after.png)
+![Footer after signup](images/newsletter/site-footer-after.png)
 
 ---
 

@@ -231,29 +231,31 @@ As Facebook frequently removes inactive or mock pages, screenshots were taken to
 
 ## Newsletter Signup
 
-To simulate a standard e-commerce email marketing feature, a **newsletter signup form** was included in the application. This feature invites users to subscribe to updates about new artists, collections, and offers.
+This project includes a **newsletter signup form** to simulate a core e-commerce feature: collecting user emails to send updates about new artists, collections, and special offers.
 
-Although integration with Mailchimp was not completed (due to trial limits), the form is designed to support future integration **with** services such as: 
+While the initial integration with Mailchimp was paused due to trial limits, the form is built to support smooth future integrations with popular email marketing services like:
 
-- [Brevo (formerly Sendinblue)](https://www.brevo.com/)
+- [Brevo (formerly Sendinblue)](https://www.brevo.com/) — fully integrated in this project
 - [MailerLite](https://www.mailerlite.com/)
-- [Moosend](https://mossend.com/)
+- [Moosend](https://moosend.com/)
 
-### Why This Feature Matters:
-- Encourage user engagement and retention
-- Builds a potential audience for marketing campaigns
-- Aligns with real-world best practices in e-commerce
+### Why This Feature Is Important
 
-### Form Features:
-- Email input with validation
-- Clear opt-in messaging
-- Confirmation message upon submission
-- Privacy reassurance (no spam!)
+- Boosts user engagement by inviting users to stay connected
+- Builds a targeted audience for marketing and promotions
+- Reflects real-world e-commerce best practices for growing customer relationships
+- Prepares the project for scalable email marketing as it evolves
 
-### Screenshot Example:
-![Newsletter Signup Form](documentation/images/)
+### Key Functionalities
 
-<p align="right"><a href="#top">🔝 Back to Top</a></p>
+- Email input with client-side validation for better UX
+- Clear opt-in messaging to ensure user consent
+- Confirmation page and double opt-in flow via Brevo for GDPR compliance
+- Privacy assurance with no spam and secure data handling
+
+### Visual Example
+
+![Newsletter Signup Form](documentation/images/newsletter_signup.png)
 
 ## Responsive Design & Accessibility
 

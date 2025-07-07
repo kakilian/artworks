@@ -1,5 +1,5 @@
 from allauth.account.views import SignupView, LoginView, LogoutView
-from django.urls import path
+from django.urls import path, include
 from .views import (
      artwork_list, artwork_detail, cart_page, update_quantity,
      remove_item, checkout_page, add_to_cart, payment_success,
@@ -32,6 +32,6 @@ urlpatterns = [
     path('add_to_cart/<int:artwork_id>/', add_to_cart, name='add_to_cart'),  # /artworks/add_to_cart/
     path('exhibition/', exhibition_view, name='exhibition_view'),  # /artworks/exhibition/
     path('workshop/', workshop_view, name='workshop_view'),
-    path('thank-you/', thank_you, name='thank_you')
-
+    path('thank-you/', thank_you, name='thank_you'),
+    path('newsletter/', include('newsletter.urls')),
 ]

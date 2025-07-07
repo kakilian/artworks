@@ -494,18 +494,42 @@ Manual walkthroughs were conducted on:
 
 ## Testing
 
-### 1. Lighthouse Report
+Here’s the polished version that matches your format and styling:
 
-The homepage was tested using [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) in mobile mode.  
+---
+
+## Testing
+
+### 1. Lighthouse Report – PC
+
+The homepage was tested using [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) in desktop mode.
 The site scored highly across all key metrics:
 
 | Performance | Accessibility | Best Practices | SEO |
-|-------------|---------------|----------------|-----|
+| ----------- | ------------- | -------------- | --- |
 | 92          | 98            | 100            | 100 |
 
-![Lighthouse Report - Homepage](documentation/images/testing/lighthouse-homepage.png)
+![Lighthouse Report – Homepage](documentation/images/testing/lighthouse-homepage.png)
 
 ---
+
+### 2. Lighthouse Report – Mobile
+
+The homepage was also tested using Lighthouse in **mobile view**.
+While the site retained excellent scores for **accessibility**, **SEO**, and **best practices**, performance was lower due to mobile-specific factors:
+
+| Performance | Accessibility | Best Practices | SEO |
+| ----------- | ------------- | -------------- | --- |
+| 74          | 98            | 100            | 100 |
+
+![Lighthouse Report – Mobile](documentation/images/testing/lighthouse-homepage-mobil.png)
+
+**Note:** The mobile performance score was affected by external integrations and image handling. These were intentionally balanced to support real-world use and portfolio goals.
+
+---
+
+Let me know if you want to drop in the HTML validator and CSS validator reports next — we can keep the same clean structure.
+
 
 ### W3C HTML Validation
 

@@ -1,0 +1,30 @@
+{% extends 'artworks/base.html' %}
+{% load static %}
+
+{% block content %}
+  <h3>Subscribe to Our Newsletter</h3>
+  {% if subscribed %}
+    <div class="mt-4 text-center">
+      <img src="{% static 'images/newsletter-art-image.jpg' %}" class="newsletter-art-image" alt="Newsletter visual">
+      <div class="thank-you-msg mt-3">
+        Thanks for subscribing! You’re on the list. Watch your inbox for new artwork drops.
+      </div>
+      <a href="{% url 'home' %}" class="btn btn-primary mt-3">Back to Home</a>
+    </div>
+  {% else %}
+    <form method="post" action="">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div>
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {% if form.email.errors %}
+          <div class="form-error">
+            {{ form.email.errors }}
+          </div>
+        {% endif %}
+      </div>
+      <button type="submit">Subscribe</button>
+    </form>
+  {% endif %}
+{% endblock %}

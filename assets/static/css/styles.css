@@ -387,68 +387,66 @@ main.container {
 }
 
 /* -- Auth Form Styles --*/
-.auth-form {
-  max-width: 400px;
-  margin: 60px auto;
-  padding: 30px;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+/* ---- Signup Wrapper Layout ---- */
+.signup-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  background-color: #f7f7f7;
 }
 
-.auth-form h2 {
-  margin-bottom: 20px;
+/* ---- Auth Form Box ---- */
+.auth-form {
+  background: rgba(255, 255, 255, 0.98);
+  padding: 2rem;
+  max-width: 480px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+/* ---- Auth Image Column ---- */
+.auth-image {
+  max-width: 400px;
   text-align: center;
-  color: #333;
+}
+
+.auth-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* ---- Typography ---- */
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #222;
 }
 
 .auth-form p {
-  margin-bottom: 16px;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
 }
 
-.auth-form label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 4px;
-  color: #444;
+/* ---- Responsive Design ---- */
+@media (max-width: 768px) {
+  .signup-wrapper {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .auth-image {
+    display: none;
+  }
 }
 
-.auth-form input[type="text"],
-.auth-form input[type="email"],
-.auth-form input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-}
-
-.auth-form button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  background: #228822;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.auth-form button:hover {
-  background: #1a661a;
-}
-
-.auth-form a {
-  color: #228822;
-  text-decoration: none;
-}
-
-.auth-form a:hover {
-  text-decoration: underline;
-  color: #1a661a;
-}
 
 /* -- Message Success */
 .message-container {
@@ -685,6 +683,22 @@ button, .add-to-cart, a {
   text-align: center;
 }
 
+.cancel-overlay h2 {
+  color: #b30000;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  text-shadow: 1px 1px 1px #fff;
+  margin-bottom: 1rem;
+}
+
+.cancel-overlay p {
+  color: #000;
+  font-size: 1.1 rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
 /* Responsive tweaks */
 @media screen and (max-width: 768px) {
     .top-row {
@@ -724,6 +738,15 @@ button, .add-to-cart, a {
         flex-direction: column;
         align-items: flex-start;
         gap: 1em;
+    }
+
+    .auth-image {
+        display: none;
+    }
+
+    .signup-wrapper {
+        justify-content: center;
+        padding: 20px;
     }
 
     .nav-menu {
@@ -766,7 +789,6 @@ button, .add-to-cart, a {
 
     /* Hero-Section */
     .cancel-hero {
-    /*background-image: none;*/
     background-color: #f8f8f8; /* fallback tone */
     min-height: auto;
     padding-top: 18vh;
@@ -781,7 +803,6 @@ button, .add-to-cart, a {
     text-align: center;
   }
 }
-
 
 /* Mobile Styles */
 @media (max-width: 650px) {

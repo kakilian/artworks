@@ -1,0 +1,23 @@
+{% extends 'artworks/base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>Welcome, {{ user.username }}!</h2>
+
+    {% if is_artist %}
+      <h3>Your Artworks</h3>
+      <ul>
+        {% for artwork in mock_artworks %}
+          <li>{{ artwork.title }} - €{{ artwork.price }} ({{ artwork.status }})</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <h3>Your Order History</h3>
+      <ul>
+        {% for order in mock_orders %}
+          <li>{{ order.title }} by {{ order.artist }} - €{{ order.price }} ({{ order.status }})</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endblock %}

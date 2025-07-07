@@ -26,6 +26,7 @@ Without his inspiration, I may never have started building apps at all.
 - [Technologies Used](#technologies-used)
 - [Facebook Business Page](#facebook-business-page)
 - [Newsletter Signup](#newsletter-signup)
+- [Responsive Design & Accessibility](#responsive-design--accessibility)
 - [E-commerce Business Model and Marketing Strategy](#e-commerce-business-model-and-marketing-strategy)
 - [Agile Development and Project Planning](#agile-development-and-project-planning)
 - [Deployment](#deployment)
@@ -68,6 +69,8 @@ All images and artist data (excluding the highlighted artist section) are fictio
 - User accounts with order tracking and wishlists
 - Secure checkout using Stripe
 - SEO and marketing integrations to build visibility
+
+
 
 ## Shop Page Intro Text
 
@@ -139,7 +142,9 @@ To enhance user experience, a custom-designed **404 Error Page** was implemented
 <p align="right"><a href="#top">🔝 Back to Top</a></p>
 
 ### Preview:
-![Custom 404 Page](documentation/images/404/404.working.png)
+![Custom 404 Page]<p align="center">
+  <img src="documentation/images/404/404.working.png" alt="Custom 404 Page" width="60%">
+</p>
 
 ##  Technologies Used
 
@@ -201,24 +206,16 @@ This exercise reinforces the importance of integrating social platforms into a b
 
 ### Screenshots
 
-#### Facebook Profile Page
+#### Facebook Cover + Welcome Post
 <p align="center">
-  <img src="documentation/images/facebook/facebook-cover.png" alt="Facebook Profile page" width="200"/>
+  <img src="documentation/images/facebook/facebook-cover.png" alt="Facebook Cover" width="48%" style="margin-right: 2%;">
+  <img src="documentation/images/facebook/facebook-welcome-post.png" alt="Facebook Welcome Post" width="48%">
 </p>
 
-#### Facebook Introduction
+#### Profile Page + Logo Description
 <p align="center">
-  <img src="documentation/images/facebook/facebook-welcome-post.png" alt="Facebook Introduction" width="200"/>
-</p>
-
-#### Facebook Support Page
-<p align="center">
-  <img src="documentation/images/facebook/facebook-profile.png" alt="Facebook Support Page" width="200"/>
-</p>
-
-#### Facebook Logo "Artworks"
-<p align="center">
-  <img src="documentation/images/facebook/facebook-logo-description.png" alt="Facebook Favicon Logo" width="200"/>
+  <img src="documentation/images/facebook/facebook-profile.png" alt="Facebook Profile Page" width="48%" style="margin-right: 2%;">
+  <img src="documentation/images/facebook/facebook-logo-description.png" alt="Facebook Logo Description" width="48%">
 </p>
 
 ---
@@ -253,12 +250,38 @@ Although integration with Mailchimp was not completed (due to trial limits), the
 - Confirmation message upon submission
 - Privacy reassurance (no spam!)
 
----
-<p align="right"><a href="#top">🔝 Back to Top</a></p>
-
-
 ### Screenshot Example:
 ![Newsletter Signup Form](documentation/images/)
+
+<p align="right"><a href="#top">🔝 Back to Top</a></p>
+
+## Responsive Design & Accessibility
+
+The "Payment Cancelled" page was a focus for both visual clarity and user experience across devices.
+
+![Flipped Stop Man]
+<p align="center">
+  <img src="https://res.cloudinary.com/dnpiqghrn/image/upload/v1750491034/stop_man_kfxtjk.png" alt="Flipped Stop Man" width="250">
+</p>
+A flipped visual asset (“stop man”) was edited and stored at:
+`documentation/images/stop_man.png`
+
+Media queries and layout testing ensured:
+- Clean display on mobile devices
+- Bold, high-contrast messaging
+- A tone that suits a broader demographic
+
+### Accessibility Checklist ✅
+
+- [x] **Color Contrast**: Red tones chosen for urgency, but tested for colorblind clarity.
+- [x] **Color Independence**: Meaning never relies on color alone.
+- [x] **Font Readability**: Consistent font sizing and spacing.
+- [x] **Responsive Layout**: Mobile-first design with media queries.
+- [x] **Accessible Buttons**: Labeled buttons, full-width tap areas.
+- [x] **Image Flow**: Image flipped for visual directionality.
+- [x] **Alt Text**: Included where applicable.
+- [x] **Keyboard Navigable**: Buttons and links work via keyboard navigation.
+
 
 ## E-commerce Business Model and Marketing Strategy
 
@@ -338,15 +361,16 @@ Screenshots of the board before and during development have been included for as
 - As a user, I want to add items to a shopping cart so I can purchase multiple artworks at once.
 - As an admin, I want to add new artworks through a form without needing to access the Django admin panel.
 
-### Screenshots
-
-![GitHub Project board Overview](documentation/images/kanban/kanban-full.png)
-![Task Example](documentation/images/kanban/kanban-part.png)
-
----
-
 <p align="right"><a href="#top">🔝 Back to Top</a></p>
 
+
+### Screenshots
+
+
+<p align="center">
+  <img src="documentation/images/kanban/kanban-full.png" alt="GitHub Project board Overview" width="48%" style="margin-right: 2%;">
+  <img src="documentation/images/kanban/kanban-part.png" alt="Task Example" width="48%">
+</p>
 
 
 ## Deployment
@@ -358,8 +382,6 @@ The live site is available at:
 🔗 [GitHub Repository](https://github.com/kakilian/artworks)  
 🔗 [Cloudinary](https://cloudinary.com)
 
-
----
 
 ### Deployment Steps
 
@@ -449,7 +471,7 @@ Manual walkthroughs were conducted on:
 ---
 <p align="right"><a href="#top">🔝 Back to Top</a></p>
 
-![Testing](documentation/screenshots/testing)
+![Testing](documentation/images/)
 
 ## Final Project Feature Checklist
 
@@ -467,7 +489,7 @@ Below is a summary of the core requirements and features implemented in this pro
 | ✅ At least one `<a>` link uses `rel` attribute                                             | ✅ Done   |
 | ✅ Custom 404 error page implemented                                                        | ✅ Done   |
 | ✅ Facebook Business Page (real or mocked with screenshots)                                | ✅ Done   |
-| ✅ Newsletter signup form (real or simulated with future integration)                      | ✅ Done   |
+| ✅ Newsletter signup form (real or simulated with future integration)                      |    |
 | ✅ E-commerce business model & marketing strategy described in README                      | ✅ Done   |
 | ✅ `DEBUG=False` in production                                                              | ✅ Done   |
 | ✅ User registration, login, and logout functionality                                       | ✅ Done   |
@@ -640,6 +662,7 @@ ALLOWED_HOSTS = ['artworks-4v1w.onrender.com', 'res.cloudinary.com']
 - The journey from ```Heroku -> Render -> Cloudinary``` gave me deep insight into media storage strategies in Django. It wasn't the shortest route, but it got the job done and gave me real-world deployment skills.
 
 ---
+
 
 ## Connect with Me
 

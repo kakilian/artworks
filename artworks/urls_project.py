@@ -1,6 +1,12 @@
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from django.views.generic import TemplateView
+from artworks.sitemaps import StaticViewSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -16,6 +22,7 @@ urlpatterns = [
         include(('artworks.urls', 'artworks'), namespace='artworks'),
     ),
     path('newsletter/', include('newsletter.urls', namespace='newsletter')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 handler404 = 'artworks.views.custom_404_view'

@@ -531,7 +531,7 @@ While the site retained excellent scores for **accessibility**, **SEO**, and **b
 Let me know if you want to drop in the HTML validator and CSS validator reports next — we can keep the same clean structure.
 
 
-### W3C HTML Validation
+### 3. W3C HTML Validation
 
 The homepage was tested using the [W3C Markup Validation Service](https://validator.w3.org/) and returned no critical HTML errors.
 
@@ -541,7 +541,7 @@ Minor "info" messages were related to trailing slashes on void elements, which d
 
 ---
 
-### W3C CSS Validation
+### 4. W3C CSS Validation
 
 The main stylesheet (`styles.css`) was tested using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and returned **3 minor errors** and **vendor-specific warnings**.
 
@@ -563,6 +563,19 @@ Initial Errors:
 Fix Applied – Padding, Word-Spacing, Font Size:
 
 <p align="center"> <img src="documentation/images/testing/css-bug-fix.png" width="30%"> <img src="documentation/images/testing/css-bug-fix-two.png" width="30%"> <img src="documentation/images/testing/css-bug-fix-three.png" width="30%"> </p>
+
+### 5. Manual Testing & User Flow
+
+Key features were manually tested for user flow and edge cases:
+
+- Registration, login, and logout
+- Cart behavior, quantity updates, and item removal
+- Stripe payment flow (success, cancellation)
+- Newsletter form validation
+- Responsive layout (desktop, tablet, mobile)
+
+For a full visual overview of these features in action, see the [Screenshots section](#screenshots).
+
 
 ## Final Project Feature Checklist
 

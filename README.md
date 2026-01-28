@@ -1,3 +1,15 @@
+## Copyright Notice
+
+© 2026 KH Kilian. All Rights Reserved.
+
+**Original Creation Date: May 10, 2025**
+
+This project and its original concept are protected by copyright.  
+Unauthorized copying, reproduction, or use is prohibited.
+
+---
+
+
 <a name="top"></a>
 <p align="center">
     <img src="documentation/images/logo/logo.png" alt="Artworks Marketplace Logo" width="200"/>
@@ -794,5 +806,16 @@ Thank you for taking the time to walk through this journey with me — not just 
 
 <p align="right"><a href="#top">🔝 Back to Top</a></p>
 
+---
+
+## Copyright & Legal
+
+© 2026 KH Kilian. All Rights Reserved.
+
+This repository, including code, design, and documentation, is protected intellectual property.  
+**Created:** May 10, 2025  
+**Last Updated:** January 28, 2026
+
+Unauthorized use, reproduction, or distribution is prohibited without written permission.
 
 

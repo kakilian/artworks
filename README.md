@@ -1,6 +1,6 @@
 ## Copyright Notice
 
-© 2026 KH Kilian. All Rights Reserved.
+© 2025-2026 KH Kilian. All Rights Reserved.
 
 **Original Creation Date: May 10, 2025**
 
